@@ -4,6 +4,11 @@ B 站「算一杆」和 YouTube「算一杆 SnookerByNumbers」的视频里，�
 
 模型的思路是**按局记账**：一场 6:5 的比赛，不只记"谁赢了"，而是记"赢家赢 6 局、输家赢 5 局"。用近四个赛季的全部职业比赛，给每位球员算出一个实力分。两人的分差决定单局胜率，再按局制换算成整场胜率，最后推演整张签表。
 
+**视频讲解**：《斯诺克胜率怎么算？5.3万局数据告诉你》，4 分 40 秒讲完模型原理和回测检验。
+
+- B 站：https://www.bilibili.com/video/BV1Gi4t6iE4x/
+- YouTube：https://youtu.be/bje8L6Dwedw
+
 ## 能做什么
 
 - **单场胜率**：任意两位球员、任意局制（比如 19 局 10 胜），也能从比赛中途的比分算起。
@@ -124,5 +129,7 @@ docs/
 
 - B 站：「算一杆」
 - YouTube：「算一杆 SnookerByNumbers」
+
+模型讲解视频：[B 站](https://www.bilibili.com/video/BV1Gi4t6iE4x/) ｜ [YouTube](https://youtu.be/bje8L6Dwedw)
 
 欢迎在视频评论区点名你想算的比赛。
