@@ -1,0 +1,22 @@
+{
+  "event": "2026 International Championship",
+  "as_of": "2026-11-03",
+  "host_country": "China",
+  "rounds": [
+    {"name": "Last 16", "best_of": 11},
+    {"name": "Quarter-finals", "best_of": 11},
+    {"name": "Semi-finals", "best_of": 17},
+    {"name": "Final", "best_of": 19}
+  ],
+  "draw": [
+    "Stephen Maguire", "Ding Junhui",
+    "Oliver Lines", "Kyren Wilson",
+    "Fan Zhengyi", "Liam Davies",
+    "Si Jiahui", "Hossein Vafaei",
+    "Wang Xinbo", "Marco Fu",
+    "Mark Williams", "John Higgins",
+    "Yuan Sijun", "Chang Bingyu",
+    "Aaron Hill", "Zhao Xintong"
+  ],
+  "live": []
+}
