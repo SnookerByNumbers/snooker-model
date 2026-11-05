@@ -1,0 +1,8 @@
+The files in this folder (matches.csv, events.csv, names_zh.json) are derived from
+English Wikipedia (season and event pages of the World Snooker Tour) and are licensed
+under the Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0):
+https://creativecommons.org/licenses/by-sa/4.0/
+
+本目录的数据整理自英文维基百科各赛季、各站赛事页面，按 CC BY-SA 4.0 发布。
+使用时请注明出处：英文维基百科，以及 https://github.com/SnookerByNumbers/snooker-model 。
+The MIT License in the repository root covers the code, not these data files.
