@@ -29,7 +29,7 @@
     "data/matches.csv": "abbccf01ff9c6634f3f17b450ff7054cb1130ace6e1290e7cce5d9ca2fa534f3",
     "data/events.csv": "2a2d34b6f244693eb1a321ea12d893b41d7e9130cd90f873fee73b0eefc28225",
     "data/centuries.csv": "8ba560f7003bd53073870e5af43acd497ee766e3bfe779f5d43880fb4eb571af",
-    "data/names_zh.json": "6b4d568583ef717aa1c9fcd348b671c60232627e982d760070f6846410114793",
+    "data/names_zh.json": "319c3d7b097fdee7d9a1a6c5353bed1876397b51a34ce7565b0a516a897cc786",
     "src/model.py": "b5486150645c79bcff7bfaedab343a8cfe51724f0bf8250cffb1ad6af7cffc64",
     "src/parse_matches.py": "2de0b6ca9a198a03fecc80d78e00b88948a25c9a8e3e64601a85a65b01b0d8e2",
     "src/parse_centuries.py": "a8dc58e14084b848f1a85b39b3a6fafd5184fb2dcf6568a664748de2869c2acb",
@@ -41,8 +41,8 @@
     "src/evaluate.py": "c8541ee772565dfb5dd7ac8292adb01955c9cd89192dcfd91608719fa60a1481",
     "evaluations/backtest.json": "8713e765f728af9c8d540104b36fa8c888198bff1617c2985b6dcb11439ee9e2",
     "evaluations/summary.md": "46fbe7d4ed418b210b7a72dbccf096ef95dfd77b17d6903c0acc16d01d8ac537",
-    "evaluations/ratings.json": "91b01b02fc9469060d2a5d1315ed92a81e5418006909c828035e861a830fa4b2",
-    "evaluations/small_sample.json": "e5f6582a74796fe106584aa3581628f3eb593a30dc9299dfbd493ba9407554cf",
+    "evaluations/ratings.json": "9002a4b2e1a4ea4f83ae1d833affc35ccac14155cf3e2c275049dd9723c72a8f",
+    "evaluations/small_sample.json": "d0ba3e5c327dca8f1f943b3d50a614ecc568075c693bb8d0536284030e2da829",
     "evaluations/small_sample.md": "b7d1cc3e46293b9f21f5895886d39a7ac7d66c6fa644e4f64eee2d01f5bc48a0"
   }
 }
