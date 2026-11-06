@@ -24,27 +24,19 @@ pip install -r requirements.txt
 mkdir -p output
 
 # 1. 回测：逐站模拟"赛前预测"，选出半衰期和往平均拉的力度（约十几秒）
-python3 src/model.py backtest data output/backtest.json
+python3 -I src/evaluate.py
 
 # 2. 算一场比赛：特鲁姆普对塞尔比，19 局 10 胜
-python3 src/match.py data output/backtest.json "Judd Trump" "Mark Selby" --best-of 19
+python3 src/match.py data evaluations/backtest.json "Judd Trump" "Mark Selby" --best-of 19
 
 # 3. 算一整张签表：每人每一轮的晋级概率
-python3 src/report.py data examples/draw_ic2026_last16.json output/backtest.json output/forecast.json
+python3 src/report.py data examples/draw_ic2026_last16.json evaluations/backtest.json output/forecast.json
 
 # 4. 实力榜
-python3 src/ratings.py data output/backtest.json 2026-11-03 output/ratings.json
+python3 src/ratings.py data evaluations/backtest.json 2026-11-03 output/ratings.json
 ```
 
-第 2 步的输出（数据截至 2026-11-03）：
-
-```
-ratings as of 2026-11-03 (config {'half_life': 1095, 'lam': 8, 'home': False, 'championship_league': True})
-  Judd Trump                1579 ± 21 (95%)   65 matches in the past year
-  Mark Selby                1555 ± 22 (95%)   73 matches in the past year
-frame: Judd Trump wins a frame 53.6%
-match, best of 19: Judd Trump 62.2% (with uncertainty), 62.4% (point estimate); Mark Selby 37.8%
-```
+第 2 步实时打印两位球员的实力分和整场胜率；使用仓库当前数据，结果随数据提交更新。
 
 球员名用英文，和 `data/matches.csv` 里一致；中文名对照见 `data/names_zh.json`。每条命令的参数、签表配置怎么写、输出文件里每个字段的意思，见 [使用指南](docs/使用指南.md)。
 
@@ -62,53 +54,36 @@ match, best of 19: Judd Trump 62.2% (with uncertainty), 62.4% (point estimate); 
 
 半衰期和 λ 都由回测选出，不是拍脑袋定的。公式和推导见 [模型原理](docs/模型原理.md)。
 
-## 回测成绩
+## 数据与回测的唯一版本
 
-做法：从 2025-07-01 起的 29 站排名赛，每站开打前只用之前的比赛算实力分，再预测这一站正赛的每一场（共 1420 场，不含平局）。
+本仓库是模型代码、清洗后数据、回测结果的唯一维护来源。所有更新一起提交到 GitHub；本地仅使用该仓库的工作副本，不再维护外层副本。
 
-| 模型 | 对数损失（越低越好） | Brier | 看好的一方赢了 |
-|---|---|---|---|
-| 抛硬币（全部 50%） | 0.6931 | 0.2500 | — |
-| 不加衰减、不往平均拉的普通 Bradley–Terry | 0.6231 | 0.2166 | 66.5% |
-| **本模型**（半衰期 1095 天，λ = 8） | **0.6223** | 0.2170 | 65.6% |
+**当前数据量、回测成绩、校准表和完整参数网格，统一见 [自动生成的评估报告](evaluations/summary.md)**。原始回测结果在 `evaluations/backtest.json`，数据和代码的 SHA-256 校验值在 `evaluations/manifest.json`。
 
-校准：把每场比赛按"模型给热门的胜率"分组，看热门实际赢了多少。
+```bash
+# 核对回测是否对应当前代码和数据
+python3 -I src/evaluate.py --check
+# 更新数据或代码后，重新生成回测、报告和校验记录
+python3 -I src/evaluate.py
+```
 
-| 模型给热门的胜率 | 场数 | 平均预测 | 实际 |
-|---|---|---|---|
-| 50%–60% | 447 | 55.1% | 55.3% |
-| 60%–70% | 445 | 64.8% | 64.7% |
-| 70%–80% | 349 | 74.5% | 70.2% |
-| 80%–90% | 146 | 84.4% | 81.5% |
-| 90%–100% | 33 | 92.5% | 100.0% |
-
-70%–90% 这两档，模型给热门的胜率比实际略高。半衰期和 λ 也是在这批回测里选出来的，所以这里的成绩会比真正"没见过"的比赛略好一点。各种设置的完整对比见 [模型原理 · 回测](docs/模型原理.md#回测)。
+历史修订通过 Git 提交追踪。迁移前已发布预测使用的冻结输入放在 `archive/`，只用于复现历史内容，不用于新预测。此后发布时记录使用的 Git 提交 SHA，无须再复制一套数据。
 
 ## 目录
 
 ```
-src/
-  fetch_wiki.py     从英文维基百科下载各赛季、各站赛事页面
-  parse_matches.py  从页面里解析出每一场比赛的比分，生成 data/*.csv
-  model.py          模型本体：拟合、误差、局制换算、签表推演、回测
-  match.py          算一场比赛
-  report.py         算一整张签表，并打印校准表和对设置的敏感性
-  ratings.py        实力榜
-data/
-  matches.csv       7761 场职业比赛（2023-06-26 至 2026-11-03），每行一场
-  events.csv        各站赛事的起止日期和举办国
-  names_zh.json     球员中文名（大陆媒体的通行写法）
-examples/
-  draw_ic2026_last16.json   签表配置示例：2026 国际锦标赛 16 强
-docs/
-  模型原理.md  数据说明.md  使用指南.md
+src/                 模型、抓取、解析、评估和命令行工具
+data/                当前四个赛季的赛果、赛事、破百和中文名
+data/history/        历史统计数据，仅用于长青选题，不进入预测模型
+evaluations/         当前回测、生成的报告、输入输出校验值
+archive/             迁移前发布内容的冻结输入，禁止覆盖
+examples/            示例签表
+docs/                原理、数据说明、使用指南
 ```
 
 ## 数据
 
-比赛结果整理自英文维基百科的各站赛事页面，覆盖 2023/24 至 2026/27 四个赛季的世界职业斯诺克巡回赛（WST）：排名赛、邀请赛、资格赛、冠军联赛。一共 7761 场比赛、53563 局、301 名球员。怎么抓、怎么解析、有哪些已知问题，见 [数据说明](docs/数据说明.md)。
-
-想用最新的赛果，可以自己重新抓取和解析（见使用指南的"更新数据"一节）。
+比赛结果整理自英文维基百科各站赛事页面；预测数据覆盖 2023/24 至 2026/27 四个赛季。赛果日期范围和数量见 [当前评估报告](evaluations/summary.md)。抓取、解析规则与已知限制见 [数据说明](docs/数据说明.md)。
 
 ## 局限
 

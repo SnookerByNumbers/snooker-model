@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "data": {
+    "matches": 7765,
+    "frames": 53579,
+    "players": 296,
+    "first_date": "2023-06-26",
+    "last_date": "2026-11-03"
+  },
+  "backtest_since": "2025-07-01",
+  "configurations": 46,
+  "best": {
+    "half_life": 1095,
+    "lam": 8,
+    "home": false,
+    "championship_league": true,
+    "n_matches": 1311,
+    "n_events": 29,
+    "log_loss": 0.6207064027486859,
+    "brier": 0.21627636653992752,
+    "accuracy": 0.6590389016018307
+  },
+  "environment": {
+    "python": "3.13.13",
+    "numpy": "2.4.4",
+    "scipy": "1.17.1"
+  },
+  "sha256": {
+    "data/matches.csv": "abbccf01ff9c6634f3f17b450ff7054cb1130ace6e1290e7cce5d9ca2fa534f3",
+    "data/events.csv": "2a2d34b6f244693eb1a321ea12d893b41d7e9130cd90f873fee73b0eefc28225",
+    "data/centuries.csv": "8ba560f7003bd53073870e5af43acd497ee766e3bfe779f5d43880fb4eb571af",
+    "data/names_zh.json": "6b4d568583ef717aa1c9fcd348b671c60232627e982d760070f6846410114793",
+    "src/model.py": "b5486150645c79bcff7bfaedab343a8cfe51724f0bf8250cffb1ad6af7cffc64",
+    "src/parse_matches.py": "2de0b6ca9a198a03fecc80d78e00b88948a25c9a8e3e64601a85a65b01b0d8e2",
+    "src/parse_centuries.py": "a8dc58e14084b848f1a85b39b3a6fafd5184fb2dcf6568a664748de2869c2acb",
+    "src/fetch_wiki.py": "f7b84b4e1e71f529e48600eca48dd8b5cba5f905b2978d7289b9db9d8023bff1",
+    "src/report.py": "dc1b6ccde7eda18c7d523017f15e26eedfb6d802e81563922208363c191c2826",
+    "src/ratings.py": "3e38dcb1da107706ee994903e317774f59f40a18475a760b87baf19642752e34",
+    "src/match.py": "a1f868086326ebd57ba433d21a0364e922ee2c9ee9efc6fd31f1e50d91111edc",
+    "src/evaluate.py": "d03015a7c8b294d37e264e79160ef1b752ae646d6e31af6bac2db7703988409a",
+    "evaluations/backtest.json": "8713e765f728af9c8d540104b36fa8c888198bff1617c2985b6dcb11439ee9e2",
+    "evaluations/summary.md": "99dbfc713a5a4585adf6299dd62548e60a22f6191fc26714d4f3ecc2746b4bcc"
+  }
+}

@@ -1,0 +1,2 @@
+# csv.writer emits CRLF. Preserve exact bytes for snapshot SHA-256 checks.
+*.csv -text whitespace=cr-at-eol
