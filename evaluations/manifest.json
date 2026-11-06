@@ -35,10 +35,14 @@
     "src/parse_centuries.py": "a8dc58e14084b848f1a85b39b3a6fafd5184fb2dcf6568a664748de2869c2acb",
     "src/fetch_wiki.py": "f7b84b4e1e71f529e48600eca48dd8b5cba5f905b2978d7289b9db9d8023bff1",
     "src/report.py": "dc1b6ccde7eda18c7d523017f15e26eedfb6d802e81563922208363c191c2826",
-    "src/ratings.py": "3e38dcb1da107706ee994903e317774f59f40a18475a760b87baf19642752e34",
+    "src/ratings.py": "60ff5fd67a8fb38373b9c071c2dab18e722e87eaaf65d2b90bec0aecded962ec",
     "src/match.py": "a1f868086326ebd57ba433d21a0364e922ee2c9ee9efc6fd31f1e50d91111edc",
-    "src/evaluate.py": "d03015a7c8b294d37e264e79160ef1b752ae646d6e31af6bac2db7703988409a",
+    "src/audit_samples.py": "a4c101317c2c5a3ae07dad5281e4b2ea1b653913939df7ab72f187441c4b6f86",
+    "src/evaluate.py": "c8541ee772565dfb5dd7ac8292adb01955c9cd89192dcfd91608719fa60a1481",
     "evaluations/backtest.json": "8713e765f728af9c8d540104b36fa8c888198bff1617c2985b6dcb11439ee9e2",
-    "evaluations/summary.md": "99dbfc713a5a4585adf6299dd62548e60a22f6191fc26714d4f3ecc2746b4bcc"
+    "evaluations/summary.md": "46fbe7d4ed418b210b7a72dbccf096ef95dfd77b17d6903c0acc16d01d8ac537",
+    "evaluations/ratings.json": "91b01b02fc9469060d2a5d1315ed92a81e5418006909c828035e861a830fa4b2",
+    "evaluations/small_sample.json": "e5f6582a74796fe106584aa3581628f3eb593a30dc9299dfbd493ba9407554cf",
+    "evaluations/small_sample.md": "b7d1cc3e46293b9f21f5895886d39a7ac7d66c6fa644e4f64eee2d01f5bc48a0"
   }
 }
