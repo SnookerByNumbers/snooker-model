@@ -23,7 +23,7 @@ def match_support(d, half_life, use_cl, since="2025-07-01"):
     for e in events:
         t = day(d.events[e]["start_date"])
         train = (d.t < t) & (use_cl | ~d.cl)
-        test = (d.event == e) & (d.t >= t) & (d.a != d.b)
+        test = (d.event == e) & (d.stage == "main") & (d.t >= t) & (d.a != d.b)
         weights = (d.a + d.b)[train] * .5 ** ((t - d.t[train]) / half_life)
         counts = (np.bincount(d.i[train], weights=weights, minlength=n)
                   + np.bincount(d.j[train], weights=weights, minlength=n))

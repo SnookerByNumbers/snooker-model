@@ -40,6 +40,7 @@ class Data:
         self.b = np.array([float(r["f2"]) for r in rows])
         self.t = np.array([day(r["date"]) for r in rows])
         self.event = np.array([r["event"] for r in rows])
+        self.stage = np.array([r.get("stage") or "main" for r in rows])
         china = np.array([r["country"] == "China" for r in rows])
         self.home = (china & np.array([r["nat1"] == "CHN" for r in rows])).astype(float) \
             - (china & np.array([r["nat2"] == "CHN" for r in rows])).astype(float)
@@ -113,7 +114,7 @@ def backtest(d, configs, since):
         for e in tests:
             t0 = day(d.events[e]["start_date"])
             train = (d.t < t0) & (use_cl | ~d.cl)
-            test = (d.event == e) & (d.t >= t0) & (d.a != d.b)
+            test = (d.event == e) & (d.stage == "main") & (d.t >= t0) & (d.a != d.b)
             if not test.any():
                 continue
             x = fit(d, train, t0, hl, lam, use_home, x)

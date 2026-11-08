@@ -13,9 +13,11 @@ import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 INPUTS = ["data/matches.csv", "data/events.csv", "data/centuries.csv", "data/names_zh.json"]
+INPUTS += ["data/snooker_org_mapping.json"]
 INPUTS += ["src/" + name for name in (
     "model.py", "parse_matches.py", "parse_centuries.py", "fetch_wiki.py",
-    "report.py", "ratings.py", "match.py", "audit_samples.py", "evaluate.py")]
+    "report.py", "ratings.py", "match.py", "audit_samples.py", "evaluate.py",
+    "fetch_snooker_org.py", "enrich_snooker_org.py")]
 OUTPUTS = ["evaluations/backtest.json", "evaluations/summary.md", "evaluations/ratings.json",
            "evaluations/small_sample.json", "evaluations/small_sample.md"]
 
@@ -94,7 +96,8 @@ def main():
     lines += ["", "## 解释与限制", "",
               "参数选择和成绩报告使用同一批回测，不能当成独立测试集成绩；微小差异尚未验证统计显著性。",
               "回测使用点估计并在每站开赛前冻结实力；实际 forecast 会对参数不确定性取平均，并可在轮间更新数据。",
-              "日期是解析器给出的近似日期，不能据此还原一站赛事内部的逐场顺序。", "",
+              "未补充来源的日期仍是维基解析器的近似日期；如已接入 snooker.org，完成日期按 EndDate 的 UTC 日期记录。",
+              "模型按天截断，不能据此进行精确到时刻的赛中回测；同站资格赛按 stage 排除在正赛测试集之外。", "",
               "少样本球员的局数、联合后验排名区间和加强收缩的分组回测，见 [少样本诊断](small_sample.md)。",
               "完整实力榜及排名概率统一保存在 [ratings.json](ratings.json)。", ""]
     (ROOT / OUTPUTS[1]).write_text("\n".join(lines))

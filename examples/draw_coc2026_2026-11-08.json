@@ -1,0 +1,94 @@
+{
+  "event": "2026 Champion of Champions",
+  "as_of": "2026-11-08",
+  "host_country": "England",
+  "rounds": [
+    {
+      "name": "Last 16",
+      "best_of": 7
+    },
+    {
+      "name": "Quarter-finals",
+      "best_of": 11
+    },
+    {
+      "name": "Semi-finals",
+      "best_of": 11
+    },
+    {
+      "name": "Final",
+      "best_of": 19
+    }
+  ],
+  "draw": [
+    "Mark Selby",
+    "Alfie Burden",
+    "Barry Hawkins",
+    "Chris Wakelin",
+    "Neil Robertson",
+    "Panchaya Channoi",
+    "Judd Trump",
+    "Jak Jones",
+    "Shaun Murphy",
+    "Ronnie O'Sullivan",
+    "Wu Yize",
+    "Chang Bingyu",
+    "Zhao Xintong",
+    "Thepchaiya Un-Nooh",
+    "Kyren Wilson",
+    "Ali Carter"
+  ],
+  "live": [],
+  "groups": [
+    {
+      "name": "Group 1",
+      "date": "2026-11-09",
+      "players": [
+        "Mark Selby",
+        "Alfie Burden",
+        "Barry Hawkins",
+        "Chris Wakelin"
+      ]
+    },
+    {
+      "name": "Group 4",
+      "date": "2026-11-10",
+      "players": [
+        "Neil Robertson",
+        "Panchaya Channoi",
+        "Judd Trump",
+        "Jak Jones"
+      ]
+    },
+    {
+      "name": "Group 3",
+      "date": "2026-11-11",
+      "players": [
+        "Shaun Murphy",
+        "Ronnie O'Sullivan",
+        "Wu Yize",
+        "Chang Bingyu"
+      ]
+    },
+    {
+      "name": "Group 2",
+      "date": "2026-11-12",
+      "players": [
+        "Zhao Xintong",
+        "Thepchaiya Un-Nooh",
+        "Kyren Wilson",
+        "Ali Carter"
+      ]
+    }
+  ],
+  "_notes": [
+    "Draw and format checked on 2026-11-08 against the official 2026 event guide.",
+    "Semifinals Group 1 vs Group 4, Group 3 vs Group 2 confirmed by the 2026 Totally Snookered draw and consistent with the Wikipedia bracket.",
+    "Quarter-finals means group finals. This is a pre-tournament projection, not actual results."
+  ],
+  "sources": [
+    "https://championofchampionssnooker.co.uk/the-2026-sportsbet-io-champion-of-champions-event-guide/",
+    "https://www.totallysnookered.com/sport/snooker/tournaments/champion-of-champions/2026-champion-of-champions-snooker-draw-results-schedule-prize-money-how-to-watch-9336426",
+    "https://en.wikipedia.org/wiki/2026_Champion_of_Champions"
+  ]
+}
