@@ -8,6 +8,9 @@ model.py (frame-level likelihood, half-life weights, ridge lam on r). Each event
 1. Log loss of the trend model for a range of lam_s against the selected model (bootstrap over events).
 2. Bias of the selected model for players grouped by their trend estimated BEFORE the event, and by how long they
    have been in the data: predicted against actual match wins.
+3. Random walk instead of a straight line: one rating per half-year, neighbouring half-years tied by lam_w.
+4. Newcomer prior: players first seen less than a year before the forecast date are shrunk toward their own group
+   mean (estimated in the fit) instead of the field average.
 Diagnostics only: nothing here feeds the forecasts, and the file is not part of evaluate.py's manifest.
 """
 import csv
@@ -47,6 +50,69 @@ def fit_trend(d, mask, t_ref, lam_s):
     x = minimize(f, np.zeros(2 * n), jac=True, method="L-BFGS-B",
                  options={"maxiter": 5000, "gtol": 1e-8, "ftol": 1e-13}).x
     return x[:n], x[n:] * k
+
+
+def _minimise(f, m):
+    return minimize(f, np.zeros(m), jac=True, method="L-BFGS-B", options={"maxiter": 8000, "gtol": 1e-8, "ftol": 1e-13}).x
+
+
+def fit_walk(d, mask, t_ref, lam_w, step=182, K=7):
+    """Rating per player per half-year (K periods back from t_ref); returns the latest period's rating. Optimised as
+    the current level c and backward increments u, r_k = c + sum of u over later periods, so the ridge on c and the
+    smoothness penalty lam_w * u^2 are both diagonal."""
+    n = len(d.players)
+    I, J, A, B = d.i[mask], d.j[mask], d.a[mask], d.b[mask]
+    W = 0.5 ** (np.maximum(t_ref - d.t[mask], 0) / HL)
+    per = np.clip(K - 1 - (t_ref - d.t[mask]) // step, 0, K - 1).astype(int)
+    ii, jj, k = I * K + per, J * K + per, np.sqrt(LAM / lam_w)
+
+    def f(x):
+        X = x.reshape(n, K)
+        c, u = X[:, K - 1], X[:, :K - 1] * k
+        r = np.empty((n, K))
+        r[:, K - 1] = c
+        r[:, :K - 1] = c[:, None] + np.cumsum(u[:, ::-1], axis=1)[:, ::-1]
+        z = r.ravel()[ii] - r.ravel()[jj]
+        g = W * (A * (1 - expit(z)) - B * expit(z))
+        obj = -(W * (A * log_expit(z) + B * log_expit(-z))).sum() + 0.5 * LAM * c @ c + 0.5 * lam_w * (u * u).sum()
+        gr = -(np.bincount(ii, g, n * K) - np.bincount(jj, g, n * K)).reshape(n, K)
+        gu = np.cumsum(gr[:, :K - 1], axis=1) + lam_w * u
+        return obj, np.concatenate([gu * k, (gr.sum(1) + LAM * c)[:, None]], axis=1).ravel()
+
+    return _minimise(f, n * K).reshape(n, K)[:, K - 1]
+
+
+def fit_newcomer(d, mask, t_ref, first, days=365):
+    """As the selected model, but players first seen under `days` before t_ref are shrunk toward their own mean mu
+    (a free parameter). Returns (ratings, mu)."""
+    n = len(d.players)
+    I, J, A, B = d.i[mask], d.j[mask], d.a[mask], d.b[mask]
+    W = 0.5 ** (np.maximum(t_ref - d.t[mask], 0) / HL)
+    new = (t_ref - first < days) & (first < t_ref)
+
+    def f(x):
+        r, mu = x[:n], x[n]
+        z = r[I] - r[J]
+        dev = r - mu * new
+        g = W * (A * (1 - expit(z)) - B * expit(z))
+        obj = -(W * (A * log_expit(z) + B * log_expit(-z))).sum() + 0.5 * LAM * dev @ dev
+        return obj, np.append(-(np.bincount(I, g, n) - np.bincount(J, g, n)) + LAM * dev, -LAM * dev[new].sum())
+
+    x = _minimise(f, n + 1)
+    return x[:n], x[n]
+
+
+def walk_forward_with(d, events, fitter):
+    """walk_forward for any fitter(mask, t0) -> ratings; same columns, slopes left at 0."""
+    rows = []
+    for k, e in enumerate(events):
+        t0 = day(d.events[e]["start_date"])
+        test = (d.event == e) & (d.stage == "main") & (d.t >= t0) & (d.a != d.b)
+        if test.any():
+            r = fitter(d.t < t0, t0)
+            rows += [(k, r[i] - r[j], int(max(a, b)), float(a > b), i, j, 0, 0)
+                     for i, j, a, b in zip(d.i[test], d.j[test], d.a[test], d.b[test])]
+    return np.array(rows)
 
 
 def walk_forward(d, events, lam_s=None):
@@ -148,6 +214,65 @@ def main():
         "读法：", "- 区间跨过 0 的行，不能说模型对这组有偏差。",
         "- 分组看的是整组的平均，不代表组里每个人都被低估或高估。",
         "- 这里没有年龄数据，“上升快”“出现时间短”只是年轻球员的近似，不能直接说成年龄的影响。", ""]
+    # part 3: random walk
+    md += ["## 3. 换成分段的漂移（随机游走）", "",
+           "不假设直线：每位球员每半年一个实力值，相邻两段之间用 λw 拉住（λw 越大越接近不让变），预测用最近一段。", "",
+           "| λw | 对数损失 | 相对选中模型 | 差值约 95% 重抽样区间 |", "|---:|---:|---:|---|"]
+    walk_better = False
+    for lam_w in (800, 400, 200, 100, 50, 25):
+        diff = log_loss(walk_forward_with(d, events, lambda m, t: fit_walk(d, m, t, lam_w))) - Lb
+        boots = [np.concatenate([diff[ev == e] for e in rng.choice(evs, len(evs))]).mean() for _ in range(2000)]
+        lo, hi = np.percentile(boots, [2.5, 97.5])
+        walk_better |= diff.mean() < 0
+        md.append(f"| {lam_w} | {(Lb + diff).mean():.4f} | {diff.mean():+.4f} | {lo:+.4f} 至 {hi:+.4f} |")
+    md += ["", ("结论：有的档位好于选中模型，见上表。" if walk_better else
+                "结论：和直线趋势一样，放得越开越差，没有一档好于选中模型，**不加入模型**。"
+                "这和参数网格的结果一致（半衰期越短越差）：这批数据里，多用旧比赛比追近况更准。"), ""]
+
+    # part 4: newcomer prior
+    mus = []
+
+    def newcomer(m, t):
+        r, mu = fit_newcomer(d, m, t, first_arr)
+        mus.append(mu)
+        return r
+
+    first_arr = np.array([first.get(i, 10 ** 9) for i in range(len(d.players))])
+    N = walk_forward_with(d, events, newcomer)
+    pn, diff = match_p(N), log_loss(N) - Lb
+    ten1, ten2 = np.array([t0[int(k)] - first[int(i)] for k, i in zip(base[:, 0], base[:, 4])]), \
+        np.array([t0[int(k)] - first[int(i)] for k, i in zip(base[:, 0], base[:, 5])])
+    has_new = (ten1 < 365) | (ten2 < 365)
+
+    def ci(m):
+        boots = [np.concatenate([diff[m & (ev == e)] for e in rng.choice(evs, len(evs))]) for _ in range(3000)]
+        return np.percentile([b.mean() for b in boots if len(b)], [2.5, 97.5])
+
+    y = base[:, 3]
+    bias = lambda p: np.concatenate([(y - p)[ten1 < 365], (p - y)[ten2 < 365]]).mean()  # noqa: E731
+    counts = {}
+    for k, i, j in zip(base[:, 0], base[:, 4], base[:, 5]):
+        for pl in (int(i), int(j)):
+            if t0[int(k)] - first[pl] < 365:
+                counts[pl] = counts.get(pl, 0) + 1
+    top = sorted(counts.items(), key=lambda x: -x[1])
+    share = sum(c for _, c in top[:2]) / sum(counts.values())
+    md += ["## 4. 给新面孔单独一个收缩中心", "",
+           "第 2 节里，出现不到 1 年的球员被高估。试一个修正：这些球员不往全体平均收缩，而往他们自己这组的平均收缩"
+           "（这个平均由拟合估出）。", "",
+           f"估出的新面孔平均水平：比全体平均低 {-np.mean(mus) * 400 / np.log(10):.0f} 分左右（各站平均）。", "",
+           "| | 场数 | 选中模型 | 加新面孔中心 | 差值 | 差值约 95% 重抽样区间 |", "|---|---:|---:|---:|---:|---|"]
+    for name, m in (("全部比赛", np.ones(len(base), bool)), ("有新面孔的比赛", has_new), ("其余比赛", ~has_new)):
+        lo, hi = ci(m)
+        md.append(f"| {name}（对数损失） | {int(m.sum())} | {Lb[m].mean():.4f} | {(Lb + diff)[m].mean():.4f} | "
+                  f"{diff[m].mean():+.4f} | {lo:+.4f} 至 {hi:+.4f} |")
+    md += ["", f"新面孔的实际减预测：选中模型 {bias(pb):+.1%}，加新面孔中心后 {bias(pn):+.1%}。", "",
+           f"这 {sum(counts.values())} 人场来自 {len(counts)} 位球员，其中 "
+           f"{'、'.join(f'{zh.get(d.players[i], d.players[i])} {c} 场' for i, c in top[:2])}，两人占 {share:.0%}。"
+           "“首次出现”只表示数据窗口里第一次有比赛，长期缺席后复出的球员也算在内；其余球员大多每人只有几场。", "",
+           "结论：这个修正把新面孔的平均偏差拉回来了，但对数损失没有改善，在有新面孔的比赛上还略差："
+           "它把早有实力、只是刚回到数据里的球员和真正的新人一起往下拉。数据里没有“职业／业余／外卡”这类身份信息，"
+           "分不开这两种人，所以**不加入模型**。实际影响也有限：被高估的主要是场次很少的球员。", ""]
     out.write_text("\n".join(md))
     print("\n".join(md))
 
