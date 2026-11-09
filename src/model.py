@@ -110,13 +110,14 @@ def backtest(d, configs, since):
                    key=lambda e: d.events[e]["start_date"])
     out = []
     for hl, lam, use_home, use_cl in configs:
-        ys, ps, x = [], [], None
+        ys, ps, x, scored = [], [], None, 0
         for e in tests:
             t0 = day(d.events[e]["start_date"])
             train = (d.t < t0) & (use_cl | ~d.cl)
             test = (d.event == e) & (d.stage == "main") & (d.t >= t0) & (d.a != d.b)
             if not test.any():
                 continue
+            scored += 1
             x = fit(d, train, t0, hl, lam, use_home, x)
             n = len(d.players)
             z = x[d.i[test]] - x[d.j[test]] + x[n] * d.home[test]
@@ -125,7 +126,7 @@ def backtest(d, configs, since):
             ys += list((d.a[test] > d.b[test]).astype(float))
         ys, ps = np.array(ys), np.clip(np.array(ps), 1e-6, 1 - 1e-6)
         rec = {"half_life": hl, "lam": lam, "home": use_home, "championship_league": use_cl,
-               "n_matches": len(ys), "n_events": len(tests),
+               "n_matches": len(ys), "n_events": scored,  # events with a scored main-stage match, not every event listed
                "log_loss": float(-(ys * np.log(ps) + (1 - ys) * np.log(1 - ps)).mean()),
                "brier": float(((ps - ys) ** 2).mean()),
                "accuracy": float(((ps > 0.5) == (ys > 0.5)).mean())}

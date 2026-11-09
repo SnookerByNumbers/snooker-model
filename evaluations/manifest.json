@@ -15,7 +15,7 @@
     "home": false,
     "championship_league": true,
     "n_matches": 1318,
-    "n_events": 29,
+    "n_events": 28,
     "log_loss": 0.6205529378222964,
     "brier": 0.21620817588811356,
     "accuracy": 0.6593323216995448
@@ -31,7 +31,7 @@
     "data/centuries.csv": "0f01723df222da2a5d960f498c6a20425e33723fbd5b41526a7183b490e8102a",
     "data/names_zh.json": "319c3d7b097fdee7d9a1a6c5353bed1876397b51a34ce7565b0a516a897cc786",
     "data/snooker_org_mapping.json": "e156781e991544a666d7f3a15afd2b224fc47abfcac4da2d2189068b33ecca14",
-    "src/model.py": "8e257b8315899fb714a2d11477dbf24f7a1371c5be0c71ea32a3e92e3972cad2",
+    "src/model.py": "8192f39a48c1cc1ff5e6790b7d0dcfc148044623711a583e30b1dce67e061f5f",
     "src/parse_matches.py": "2de0b6ca9a198a03fecc80d78e00b88948a25c9a8e3e64601a85a65b01b0d8e2",
     "src/parse_centuries.py": "a8dc58e14084b848f1a85b39b3a6fafd5184fb2dcf6568a664748de2869c2acb",
     "src/fetch_wiki.py": "f7b84b4e1e71f529e48600eca48dd8b5cba5f905b2978d7289b9db9d8023bff1",
@@ -42,8 +42,8 @@
     "src/evaluate.py": "de8eab057fd97884da8c6ad1475c770e92d0af815bd254fda4f4f86cd696e709",
     "src/fetch_snooker_org.py": "6286847548759a13811c95b38187939dd9f1a29088ce127c5bba5c1a825ec848",
     "src/enrich_snooker_org.py": "ad8699987e7b140d6c9de36e04fb3fdfb20e1e4a641274480029003424c06baf",
-    "evaluations/backtest.json": "05c4e6103e96515bb53f071dabe92398f6e3d756e0d43b3eddb1f76bdc1edcec",
-    "evaluations/summary.md": "4d076a67e8f534dddd8d35763ad04859ae892bf74dec304391c0968cd8c4affe",
+    "evaluations/backtest.json": "10df20b2d5fad7ab339d7eebf492dad3a7bba2daae4867cb03edca68e86a2259",
+    "evaluations/summary.md": "08252b91954665d4bc917fb6ef3f89690086b1cff4da3927b932763a1074a85c",
     "evaluations/ratings.json": "a1acaf1021a8a636467fc2cf26f160a647afe701ed593f9470113cb67171387f",
     "evaluations/small_sample.json": "415a220cd611f10c9dd3cd9f5234428dec7f99345f397bb4eb55595a04756084",
     "evaluations/small_sample.md": "694681531c256b6e87bc831be37c393b464fc177486b5f33a95dd83c92c77f56"
