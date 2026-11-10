@@ -29,7 +29,7 @@
     "data/matches.csv": "80a1708bdc20dc498d762fa5e1ec384e45efb5b84c38f2e977b939285fa7979c",
     "data/events.csv": "2a2d34b6f244693eb1a321ea12d893b41d7e9130cd90f873fee73b0eefc28225",
     "data/centuries.csv": "0f01723df222da2a5d960f498c6a20425e33723fbd5b41526a7183b490e8102a",
-    "data/names_zh.json": "319c3d7b097fdee7d9a1a6c5353bed1876397b51a34ce7565b0a516a897cc786",
+    "data/names_zh.json": "e6939162ec1e934b657bd53db4d01aaaf8784cf87eb225638763f36bcdbdbf8f",
     "data/snooker_org_mapping.json": "e156781e991544a666d7f3a15afd2b224fc47abfcac4da2d2189068b33ecca14",
     "src/model.py": "8192f39a48c1cc1ff5e6790b7d0dcfc148044623711a583e30b1dce67e061f5f",
     "src/parse_matches.py": "2de0b6ca9a198a03fecc80d78e00b88948a25c9a8e3e64601a85a65b01b0d8e2",
