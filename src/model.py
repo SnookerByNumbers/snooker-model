@@ -110,7 +110,7 @@ def backtest(d, configs, since):
                    key=lambda e: d.events[e]["start_date"])
     out = []
     for hl, lam, use_home, use_cl in configs:
-        ys, ps, x, scored = [], [], None, 0
+        ys, ps, x, scored, per_event = [], [], None, 0, []
         for e in tests:
             t0 = day(d.events[e]["start_date"])
             train = (d.t < t0) & (use_cl | ~d.cl)
@@ -124,6 +124,7 @@ def backtest(d, configs, since):
             nmax = np.maximum(d.a[test], d.b[test]).astype(int)
             ps += [float(race(expit(zz), int(nn))) for zz, nn in zip(z, nmax)]
             ys += list((d.a[test] > d.b[test]).astype(float))
+            per_event.append(int(test.sum()))
         ys, ps = np.array(ys), np.clip(np.array(ps), 1e-6, 1 - 1e-6)
         rec = {"half_life": hl, "lam": lam, "home": use_home, "championship_league": use_cl,
                "n_matches": len(ys), "n_events": scored,  # events with a scored main-stage match, not every event listed
@@ -131,8 +132,49 @@ def backtest(d, configs, since):
                "brier": float(((ps - ys) ** 2).mean()),
                "accuracy": float(((ps > 0.5) == (ys > 0.5)).mean())}
         print(json.dumps(rec), flush=True)
-        out.append(rec | {"_y": ys.tolist(), "_p": ps.tolist()})
+        out.append(rec | {"_y": ys.tolist(), "_p": ps.tolist(), "_n_event": per_event})
     return out
+
+
+CFG_KEYS = ("half_life", "lam", "home", "championship_league")
+
+
+def selected(records):
+    """The backtest config to forecast with: the one evaluate.py marked "selected" (see choose()), or, in a
+    backtest file from before that rule, the lowest log loss."""
+    return next((r for r in records if r.get("selected")), None) or min(records, key=lambda r: r["log_loss"])
+
+
+def choose(records, incumbent, draws=4000, seed=0):
+    """Keep the incumbent config unless the lowest-log-loss config is clearly better: its log loss, minus the
+    incumbent's, must be below 0 over the whole 95% interval of a bootstrap over events (matches of one event
+    move together). A switch on a noise-level difference would reshuffle every rating and forecast for nothing.
+    incumbent: {CFG_KEYS: ...} or None. Returns (chosen record, info dict)."""
+    best = min(records, key=lambda r: r["log_loss"])
+    key = lambda r: tuple(r[k] for k in CFG_KEYS)
+    inc = next((r for r in records if incumbent and key(r) == tuple(incumbent[k] for k in CFG_KEYS)), None)
+    info = {"challenger": {k: best[k] for k in CFG_KEYS}, "incumbent": incumbent}
+    if inc is None or inc is best:
+        info["rule"] = "no incumbent in this backtest" if inc is None else "incumbent has the lowest log loss"
+        return best, info
+
+    def per_match(r):
+        y, p = np.array(r["_y"]), np.array(r["_p"])
+        return -(y * np.log(p) + (1 - y) * np.log(1 - p))
+
+    diff = per_match(best) - per_match(inc)
+    cuts = np.cumsum([0] + inc["_n_event"])
+    groups = [diff[a:b] for a, b in zip(cuts[:-1], cuts[1:])]
+    rng = np.random.default_rng(seed)
+    boots = np.array([np.concatenate([groups[k] for k in rng.integers(0, len(groups), len(groups))]).mean()
+                      for _ in range(draws)])
+    lo, hi = np.quantile(boots, [0.025, 0.975])
+    info |= {"difference": float(diff.mean()), "interval_95": [float(lo), float(hi)], "events": len(groups)}
+    if hi < 0:
+        info["rule"] = "switched: the challenger is better over the whole interval"
+        return best, info
+    info["rule"] = "kept the incumbent: the difference is within the interval"
+    return inc, info
 
 
 def bracket_odds(R, rounds, live):
@@ -248,7 +290,7 @@ def main():
     else:
         draw = json.load(open(sys.argv[3]))
         bt = [r for r in json.load(open(sys.argv[4]))]
-        best = min(bt, key=lambda r: r["log_loss"])
+        best = selected(bt)
         cfg = {k: best[k] for k in ("half_life", "lam", "home", "championship_league")}
         json.dump(forecast(d, draw, cfg), open(sys.argv[5], "w"), ensure_ascii=False, indent=1)
 

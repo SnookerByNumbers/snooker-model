@@ -19,7 +19,7 @@ import numpy as np
 from scipy.special import expit
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from model import Data, covariance, day, fit  # noqa: E402
+from model import Data, covariance, day, fit, selected  # noqa: E402
 
 
 def rating_state(d, cfg, as_of, with_sd=True):
@@ -112,7 +112,7 @@ def main():
     ap.add_argument("--seed", type=int, default=0)
     a = ap.parse_args()
     d = Data(a.data_dir)
-    best = min(json.load(open(a.backtest)), key=lambda r: r["log_loss"])
+    best = selected(json.load(open(a.backtest)))
     cfg = {k: best[k] for k in ("half_life", "lam", "home", "championship_league")}
     out = ranking(d, cfg, a.as_of, a.min_matches, a.since, a.draws, a.seed)
     players = out["players"]

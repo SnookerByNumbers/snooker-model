@@ -26,6 +26,19 @@ def hashes(paths):
     return {p: hashlib.sha256((ROOT / p).read_bytes()).hexdigest() for p in paths}
 
 
+def selection_note(sel):
+    if "difference" not in sel:
+        return "本次：" + {"incumbent has the lowest log loss": "上次选中的参数仍是对数损失最低的。",
+                          "no incumbent in this backtest": "没有可沿用的上次参数，取对数损失最低的。"}[sel["rule"]]
+    c = sel["challenger"]
+    lo, hi = sel["interval_95"]
+    name = (f"半衰期 {c['half_life']} 天、λ = {c['lam']}、主场项{'启用' if c['home'] else '不启用'}、"
+            f"冠军联赛训练数据{'保留' if c['championship_league'] else '排除'}")
+    verdict = "已换用。" if sel["rule"].startswith("switched") else "差别在误差以内，没有换。"
+    return (f"本次对数损失最低的是{name}，比沿用的参数低 {-sel['difference']:.4f}"
+            f"（95% 区间 {-hi:.4f} 到 {-lo:.4f}，{sel['events']} 站），{verdict}")
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--check", action="store_true", help="fail if inputs or outputs changed since evaluation")
@@ -41,6 +54,11 @@ def main():
         return
 
     (ROOT / "evaluations").mkdir(exist_ok=True)
+    sys.path.insert(0, str(ROOT / "src"))
+    from model import CFG_KEYS, choose, selected
+    previous = ROOT / OUTPUTS[0]
+    incumbent = ({k: v for k, v in selected(json.loads(previous.read_text())).items() if k in CFG_KEYS}
+                 if previous.exists() else None)
     before = hashes(INPUTS)
     subprocess.run([sys.executable, "-I", str(ROOT / "src/model.py"), "backtest",
                     str(ROOT / "data"), str(ROOT / OUTPUTS[0])], check=True,
@@ -48,7 +66,10 @@ def main():
     if hashes(INPUTS) != before:
         raise SystemExit("Inputs changed while evaluating; rerun before committing.")
     records = json.loads((ROOT / OUTPUTS[0]).read_text())
-    best = min(records, key=lambda r: r["log_loss"])
+    best, selection = choose(records, incumbent)
+    for r in records:
+        r["selected"] = r is best
+    (ROOT / OUTPUTS[0]).write_text(json.dumps(records))
     plain = next(r for r in records if r["half_life"] == 1e6)
     with (ROOT / "data/matches.csv").open() as f:
         matches = list(csv.DictReader(f))
@@ -59,7 +80,6 @@ def main():
         "first_date": min(r["date"] for r in matches),
         "last_date": max(r["date"] for r in matches),
     }
-    sys.path.insert(0, str(ROOT / "src"))
     from report import calibration
     from ratings import ranking
     from model import Data
@@ -77,6 +97,8 @@ def main():
              f"选中参数：半衰期 {best['half_life']} 天，λ = {best['lam']}，"
              f"主场项 {'启用' if best['home'] else '不启用'}，"
              f"冠军联赛训练数据 {'保留' if best['championship_league'] else '排除'}。", "",
+             "选参规则：沿用上次选中的参数；回测里对数损失最低的参数，要在按赛事重抽样的 95% 区间内都更好才换"
+             "（差别在误差以内就换，所有实力分和预测会无谓地变动）。" + selection_note(selection), "",
              "| 模型 | 对数损失 ↓ | Brier ↓ | 命中率 ↑ |", "|---|---:|---:|---:|",
              "| 全部预测 50% | 0.6931 | 0.2500 | — |"]
     for title, r in [("普通 BT（不衰减、λ=0.01）", plain), ("选中模型", best)]:
@@ -105,6 +127,7 @@ def main():
     manifest = {"schema_version": 1, "data": stats,
                 "backtest_since": "2025-07-01", "configurations": len(records),
                 "best": {k: v for k, v in best.items() if not k.startswith("_")},
+                "selection": selection,
                 "environment": {"python": sys.version.split()[0], "numpy": numpy.__version__, "scipy": scipy.__version__},
                 "sha256": hashes(INPUTS + OUTPUTS)}
     manifest_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n")

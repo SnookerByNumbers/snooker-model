@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
   "data": {
-    "matches": 7772,
-    "frames": 53660,
+    "matches": 7781,
+    "frames": 53719,
     "players": 296,
     "first_date": "2023-06-26",
-    "last_date": "2026-11-07"
+    "last_date": "2026-11-11"
   },
   "backtest_since": "2025-07-01",
   "configurations": 46,
@@ -14,11 +14,33 @@
     "lam": 8,
     "home": false,
     "championship_league": true,
-    "n_matches": 1318,
-    "n_events": 28,
-    "log_loss": 0.6205529378222964,
-    "brier": 0.21620817588811356,
-    "accuracy": 0.6593323216995448
+    "n_matches": 1327,
+    "n_events": 29,
+    "log_loss": 0.620925345108825,
+    "brier": 0.2164464334620679,
+    "accuracy": 0.6586284853051997,
+    "selected": true
+  },
+  "selection": {
+    "challenger": {
+      "half_life": 1095,
+      "lam": 8,
+      "home": false,
+      "championship_league": false
+    },
+    "incumbent": {
+      "half_life": 1095,
+      "lam": 8,
+      "home": false,
+      "championship_league": true
+    },
+    "difference": -0.0001240060290191663,
+    "interval_95": [
+      -0.0031112846471366413,
+      0.003160903759831661
+    ],
+    "events": 29,
+    "rule": "kept the incumbent: the difference is within the interval"
   },
   "environment": {
     "python": "3.13.13",
@@ -26,26 +48,26 @@
     "scipy": "1.17.1"
   },
   "sha256": {
-    "data/matches.csv": "80a1708bdc20dc498d762fa5e1ec384e45efb5b84c38f2e977b939285fa7979c",
+    "data/matches.csv": "d932727ed6b1e207ca19bd343a35862a4588b8df5049377093ebdc1514e8c670",
     "data/events.csv": "2a2d34b6f244693eb1a321ea12d893b41d7e9130cd90f873fee73b0eefc28225",
-    "data/centuries.csv": "0f01723df222da2a5d960f498c6a20425e33723fbd5b41526a7183b490e8102a",
+    "data/centuries.csv": "92860e71d28ea3ff85d38cc66799733f00a33c5f40a0d8210c9cf775b5a01377",
     "data/names_zh.json": "382a805a3a280a1dbd3c16ed88219b7661524078d5d2ccdc575856ebab1ebae3",
     "data/snooker_org_mapping.json": "e156781e991544a666d7f3a15afd2b224fc47abfcac4da2d2189068b33ecca14",
-    "src/model.py": "8192f39a48c1cc1ff5e6790b7d0dcfc148044623711a583e30b1dce67e061f5f",
+    "src/model.py": "ab6db129855802898b9a7ad6ac2096cbd03127a879cb6256c49fc57341cd0e42",
     "src/parse_matches.py": "2de0b6ca9a198a03fecc80d78e00b88948a25c9a8e3e64601a85a65b01b0d8e2",
     "src/parse_centuries.py": "a8dc58e14084b848f1a85b39b3a6fafd5184fb2dcf6568a664748de2869c2acb",
     "src/fetch_wiki.py": "f7b84b4e1e71f529e48600eca48dd8b5cba5f905b2978d7289b9db9d8023bff1",
-    "src/report.py": "dc1b6ccde7eda18c7d523017f15e26eedfb6d802e81563922208363c191c2826",
-    "src/ratings.py": "60ff5fd67a8fb38373b9c071c2dab18e722e87eaaf65d2b90bec0aecded962ec",
-    "src/match.py": "a1f868086326ebd57ba433d21a0364e922ee2c9ee9efc6fd31f1e50d91111edc",
-    "src/audit_samples.py": "0670caf027418334800752dc7dd9b9c932cd86dff884d98b1c1be4e822d14de5",
-    "src/evaluate.py": "de8eab057fd97884da8c6ad1475c770e92d0af815bd254fda4f4f86cd696e709",
+    "src/report.py": "85ad6bbc48dec12bc48a8a6cf9028b2e208c4eeed70f528e74267930e2caeb87",
+    "src/ratings.py": "16425276e7ded7d258e66a7c28e1e114b4cc378a02ec71f308894858dfe21298",
+    "src/match.py": "716320dfa518920c76497cbaeb275710a149127cda24ac80801f48285480473e",
+    "src/audit_samples.py": "d3e25a6c7b1e4883b850f8d090f94603f67fbeedbc8d47d1e1d46d5625cb7fb5",
+    "src/evaluate.py": "dd96333ab6067559db0083221e7ab6a2ec4d086749b3c02b6f272cdb3e25299a",
     "src/fetch_snooker_org.py": "6286847548759a13811c95b38187939dd9f1a29088ce127c5bba5c1a825ec848",
     "src/enrich_snooker_org.py": "ad8699987e7b140d6c9de36e04fb3fdfb20e1e4a641274480029003424c06baf",
-    "evaluations/backtest.json": "10df20b2d5fad7ab339d7eebf492dad3a7bba2daae4867cb03edca68e86a2259",
-    "evaluations/summary.md": "08252b91954665d4bc917fb6ef3f89690086b1cff4da3927b932763a1074a85c",
-    "evaluations/ratings.json": "a1acaf1021a8a636467fc2cf26f160a647afe701ed593f9470113cb67171387f",
-    "evaluations/small_sample.json": "415a220cd611f10c9dd3cd9f5234428dec7f99345f397bb4eb55595a04756084",
-    "evaluations/small_sample.md": "694681531c256b6e87bc831be37c393b464fc177486b5f33a95dd83c92c77f56"
+    "evaluations/backtest.json": "c00ff47c869ac01ed83ae1199b333967dde04b03391c39a41deb3159a5d5628b",
+    "evaluations/summary.md": "73f6d51bbeb6daa6c346804b7babee514e26babd5f3c5321f8bd81d95ffba8a5",
+    "evaluations/ratings.json": "1bec0c7baa5c64259597af91134d7c3b41019a8372e04222e7b518c17df520c9",
+    "evaluations/small_sample.json": "7e787212d146d2bb7c900544ba5edbbb459a5e5e87a87522b59db1535bad69b0",
+    "evaluations/small_sample.md": "89158c51ad814b4d43eb465da0f0296ad213c5677e51e2bf1a37b1caf08399b8"
   }
 }

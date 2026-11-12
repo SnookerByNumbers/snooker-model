@@ -10,7 +10,7 @@ import sys
 import numpy as np
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from model import Data, day
+from model import Data, day, selected
 from ratings import table
 
 
@@ -38,7 +38,7 @@ def audit(root):
     root = Path(root)
     results = json.loads((root / "evaluations/backtest.json").read_text())
     ratings = json.loads((root / "evaluations/ratings.json").read_text())
-    best = min(results, key=lambda r: r["log_loss"])
+    best = selected(results)
     variants = sorted((r for r in results if all(r[k] == best[k] for k in
                       ("half_life", "home", "championship_league")) and r["lam"] >= best["lam"]),
                       key=lambda r: r["lam"])

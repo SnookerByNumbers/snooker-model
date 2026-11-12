@@ -15,7 +15,7 @@ from datetime import date
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from model import Data, forecast  # noqa: E402
+from model import Data, forecast, selected  # noqa: E402
 
 
 def main():
@@ -35,7 +35,7 @@ def main():
             close = [q for q in d.players if p.split()[-1].lower() in q.lower()][:8]
             sys.exit(f"unknown player {p!r}; names are as in matches.csv" + (f", e.g. {close}" if close else ""))
     as_of = a.as_of or date.fromordinal(int(d.t.max())).isoformat()  # default: the latest match in the data
-    best = min(json.load(open(a.backtest)), key=lambda r: r["log_loss"])
+    best = selected(json.load(open(a.backtest)))
     cfg = {k: best[k] for k in ("half_life", "lam", "home", "championship_league")}
     live = [{"p1": a.a, "p2": a.b, "f1": a.score[0], "f2": a.score[1]}] if any(a.score) else []
     draw = {"event": f"{a.a} v {a.b}", "as_of": as_of, "host_country": a.host_country,

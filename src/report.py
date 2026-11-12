@@ -9,7 +9,7 @@ from pathlib import Path
 import numpy as np
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from model import Data, bracket_odds, covariance, day, fit, forecast  # noqa: E402
+from model import Data, bracket_odds, covariance, day, fit, forecast, selected  # noqa: E402
 
 
 def calibration(ys, ps, edges=(0, .2, .35, .5, .65, .8, 1.0001)):
@@ -42,7 +42,7 @@ def main():
     d = Data(data_dir)
     draw = json.load(open(draw_path))
     bt = json.load(open(bt_path))
-    best = min(bt, key=lambda r: r["log_loss"])
+    best = selected(bt)
     cfg = {k: best[k] for k in ("half_life", "lam", "home", "championship_league")}
 
     res = forecast(d, draw, cfg)
