@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
   "data": {
-    "matches": 7784,
-    "frames": 53736,
+    "matches": 7866,
+    "frames": 54345,
     "players": 296,
     "first_date": "2023-06-26",
-    "last_date": "2026-11-12"
+    "last_date": "2026-11-19"
   },
   "backtest_since": "2025-07-01",
   "configurations": 46,
@@ -14,11 +14,11 @@
     "lam": 8,
     "home": false,
     "championship_league": true,
-    "n_matches": 1330,
+    "n_matches": 1333,
     "n_events": 29,
-    "log_loss": 0.6207897628926684,
-    "brier": 0.2163812406561693,
-    "accuracy": 0.6586466165413534,
+    "log_loss": 0.6208604190016752,
+    "brier": 0.2164160449861499,
+    "accuracy": 0.6586646661665416,
     "selected": true
   },
   "selection": {
@@ -34,10 +34,10 @@
       "home": false,
       "championship_league": true
     },
-    "difference": -0.00015288341785143364,
+    "difference": -0.0001636705587598436,
     "interval_95": [
-      -0.0031309494916219273,
-      0.00311898384667055
+      -0.003142803149674592,
+      0.003104482686707746
     ],
     "events": 29,
     "rule": "kept the incumbent: the difference is within the interval"
@@ -48,9 +48,9 @@
     "scipy": "1.17.1"
   },
   "sha256": {
-    "data/matches.csv": "1a55b01e581e57c684bca90f49d9cbf5ab61ca41dabd45e08e55c8345f178376",
+    "data/matches.csv": "6d20d822083b3f73b49228738eb6b954fa5ea176e188fd1a0fa824396129367d",
     "data/events.csv": "2a2d34b6f244693eb1a321ea12d893b41d7e9130cd90f873fee73b0eefc28225",
-    "data/centuries.csv": "70e16ac7f05af8c704a8b885f6197ec210a29cb400762636ac54c94c7530fc88",
+    "data/centuries.csv": "80f532bded69eabd4e37b025018eda54af794663e53b5ffb15c9f77ee6e942a5",
     "data/names_zh.json": "382a805a3a280a1dbd3c16ed88219b7661524078d5d2ccdc575856ebab1ebae3",
     "data/snooker_org_mapping.json": "e156781e991544a666d7f3a15afd2b224fc47abfcac4da2d2189068b33ecca14",
     "src/model.py": "ab6db129855802898b9a7ad6ac2096cbd03127a879cb6256c49fc57341cd0e42",
@@ -64,10 +64,10 @@
     "src/evaluate.py": "dd96333ab6067559db0083221e7ab6a2ec4d086749b3c02b6f272cdb3e25299a",
     "src/fetch_snooker_org.py": "6286847548759a13811c95b38187939dd9f1a29088ce127c5bba5c1a825ec848",
     "src/enrich_snooker_org.py": "ad8699987e7b140d6c9de36e04fb3fdfb20e1e4a641274480029003424c06baf",
-    "evaluations/backtest.json": "526859f103f7e7a4a9e072b29c594099798c60eb97b115e5c73bb8ca3328e9ff",
-    "evaluations/summary.md": "f4f8a7cf4daf90afb9c39d46407f1a12c1d018888ca24b75dfc2ecaa610b9734",
-    "evaluations/ratings.json": "9bcc7804841f1b2f3dfdf24dc29ddf65c079dd3622ac15dd8c54f5a4c07cd1e4",
-    "evaluations/small_sample.json": "ff454e4370aae1ff7e34c8c5a3670b47b915eb52102256c8da1f54ba13f49b82",
-    "evaluations/small_sample.md": "71561c6cb9d79c888c382b83a371a6f717b6010ca62eef6e567bd7ce6d06002e"
+    "evaluations/backtest.json": "f7b782214e40f7402ff01eb708502fa4cf37847f9c92747d05b2f33ba7d138d7",
+    "evaluations/summary.md": "6af14dcdd2d8313eb3e0cd726d179070ca69527d56d80615cdc1488df704f13d",
+    "evaluations/ratings.json": "d04e5a2be62e7eefba2a2a250ec27c0a08a4031d0688416abde0564ea5e6d0de",
+    "evaluations/small_sample.json": "6bb5a3c8622b2c4fc2f15c6f0113334e8c08a818aef18ad4bceaa98c2963052c",
+    "evaluations/small_sample.md": "6cb976a9bfc896c110f0ac45f7ec74fbc844b8141a9e93a57b17f755b673e014"
   }
 }

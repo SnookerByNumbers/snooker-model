@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-11-12",
+  "as_of": "2026-11-19",
   "grouping": "minimum_of_two_players_pre_event_time_weighted_frames",
   "bootstrap": {
     "unit": "event",
@@ -15,11 +15,11 @@
   "groups": [
     {
       "group": "全部",
-      "matches": 1330,
+      "matches": 1333,
       "variants": [
         {
           "lam": 8,
-          "log_loss": 0.6207897628926684,
+          "log_loss": 0.6208604190016752,
           "delta_vs_selected": 0.0,
           "event_bootstrap_interval95": [
             0.0,
@@ -28,29 +28,29 @@
         },
         {
           "lam": 16,
-          "log_loss": 0.6213974284506162,
-          "delta_vs_selected": 0.000607665557947755,
+          "log_loss": 0.621460938859737,
+          "delta_vs_selected": 0.0006005198580617349,
           "event_bootstrap_interval95": [
-            -0.0025598514241008757,
-            0.0037536841622916456
+            -0.002559869220822672,
+            0.0037254460867465465
           ]
         },
         {
           "lam": 32,
-          "log_loss": 0.6246787118110498,
-          "delta_vs_selected": 0.00388894891838137,
+          "log_loss": 0.6247264008728965,
+          "delta_vs_selected": 0.003865981871221311,
           "event_bootstrap_interval95": [
-            -0.002985104178611203,
-            0.01092121462856662
+            -0.003000876046083815,
+            0.010843000829403773
           ]
         },
         {
           "lam": 64,
-          "log_loss": 0.6321792295538678,
-          "delta_vs_selected": 0.011389466661199351,
+          "log_loss": 0.6322023177429792,
+          "delta_vs_selected": 0.011341898741304037,
           "event_bootstrap_interval95": [
-            0.0004426866351542066,
-            0.022673013841241492
+            0.00044168160848711955,
+            0.022562401638632972
           ]
         }
       ]
@@ -141,11 +141,11 @@
     },
     {
       "group": "至少 500 折算局",
-      "matches": 510,
+      "matches": 513,
       "variants": [
         {
           "lam": 8,
-          "log_loss": 0.653864844498298,
+          "log_loss": 0.6538550186668928,
           "delta_vs_selected": 0.0,
           "event_bootstrap_interval95": [
             0.0,
@@ -154,29 +154,29 @@
         },
         {
           "lam": 16,
-          "log_loss": 0.6533952355716617,
-          "delta_vs_selected": -0.0004696089266362187,
+          "log_loss": 0.6533731419147314,
+          "delta_vs_selected": -0.00048187675216119477,
           "event_bootstrap_interval95": [
-            -0.0023794802399859445,
-            0.0014466094476031646
+            -0.0023806648609002124,
+            0.0014321965926606247
           ]
         },
         {
           "lam": 32,
-          "log_loss": 0.6535640625888041,
-          "delta_vs_selected": -0.0003007819094938635,
+          "log_loss": 0.6535190596007113,
+          "delta_vs_selected": -0.000335959066181451,
           "event_bootstrap_interval95": [
-            -0.004929372084248145,
-            0.00440427709490889
+            -0.004941518635118169,
+            0.004349959868203752
           ]
         },
         {
           "lam": 64,
-          "log_loss": 0.6553186069052145,
-          "delta_vs_selected": 0.0014537624069165835,
+          "log_loss": 0.6552432821957244,
+          "delta_vs_selected": 0.0013882635288315788,
           "event_bootstrap_interval95": [
-            -0.006518464255983183,
-            0.009728027079226403
+            -0.006568831505101507,
+            0.009619283269887311
           ]
         }
       ]
@@ -187,15 +187,15 @@
       "rank": 1,
       "name": "Judd Trump",
       "nat": "ENG",
-      "elo": 1578.187909225073,
-      "elo_sd": 10.50496570931961,
-      "frame_vs_typical_pro": 0.6106596300471048,
-      "matches_past_year": 63,
+      "elo": 1578.4977571115523,
+      "elo_sd": 10.520931780242476,
+      "frame_vs_typical_pro": 0.6110836116937047,
+      "matches_past_year": 59,
       "frames": 2129,
-      "weighted_frames": 1439.3423663251733,
-      "frames_past_year": 554,
+      "weighted_frames": 1432.99188475899,
+      "frames_past_year": 518,
       "elo_since": null,
-      "rank_mean": 1.16935,
+      "rank_mean": 1.17755,
       "rank_median": 1,
       "rank_low": 1,
       "rank_high": 2,
@@ -206,58 +206,58 @@
       "rank": 2,
       "name": "Zhao Xintong",
       "nat": "CHN",
-      "elo": 1559.9244037887674,
-      "elo_sd": 12.871222176645512,
-      "frame_vs_typical_pro": 0.585393064130369,
-      "matches_past_year": 85,
+      "elo": 1560.4565572185106,
+      "elo_sd": 12.891825400547187,
+      "frame_vs_typical_pro": 0.5861363617949285,
+      "matches_past_year": 82,
       "frames": 1033,
-      "weighted_frames": 847.2227599690242,
-      "frames_past_year": 641,
+      "weighted_frames": 843.4977718238351,
+      "frames_past_year": 618,
       "elo_since": null,
-      "rank_mean": 2.94725,
+      "rank_mean": 2.9173,
       "rank_median": 2,
       "rank_low": 1,
       "rank_high": 8,
-      "top5_probability": 0.91185,
+      "top5_probability": 0.9148,
       "top16_probability": 0.99995
     },
     {
       "rank": 8,
       "name": "Chang Bingyu",
       "nat": "CHN",
-      "elo": 1534.8608052941688,
-      "elo_sd": 16.792995284398593,
-      "frame_vs_typical_pro": 0.5500010471817212,
+      "elo": 1535.5946567168426,
+      "elo_sd": 16.820034542900284,
+      "frame_vs_typical_pro": 0.5510463605102773,
       "matches_past_year": 51,
       "frames": 528,
-      "weighted_frames": 454.71660734825736,
+      "weighted_frames": 452.73078175928424,
       "frames_past_year": 372,
       "elo_since": null,
-      "rank_mean": 8.8472,
+      "rank_mean": 8.6764,
       "rank_median": 8,
       "rank_low": 2,
       "rank_high": 20,
-      "top5_probability": 0.2686,
-      "top16_probability": 0.9345
+      "top5_probability": 0.28085,
+      "top16_probability": 0.9396
     },
     {
       "rank": 10,
       "name": "Wu Yize",
       "nat": "CHN",
-      "elo": 1528.450826624788,
-      "elo_sd": 11.721695002329856,
-      "frame_vs_typical_pro": 0.5408527567633041,
+      "elo": 1528.8662745032602,
+      "elo_sd": 11.740773669521042,
+      "frame_vs_typical_pro": 0.5414465847152635,
       "matches_past_year": 73,
       "frames": 1410,
-      "weighted_frames": 1043.227566300273,
+      "weighted_frames": 1038.628417246207,
       "frames_past_year": 584,
       "elo_since": null,
-      "rank_mean": 10.37195,
+      "rank_mean": 10.34425,
       "rank_median": 10,
       "rank_low": 4,
       "rank_high": 18,
-      "top5_probability": 0.07215,
-      "top16_probability": 0.95225
+      "top5_probability": 0.071,
+      "top16_probability": 0.9507
     }
   ],
   "sensitivity": [
@@ -267,22 +267,22 @@
         {
           "name": "Judd Trump",
           "rank": 1,
-          "elo": 1578.187909225073
+          "elo": 1578.4977571115523
         },
         {
           "name": "Zhao Xintong",
           "rank": 2,
-          "elo": 1559.9244037887674
+          "elo": 1560.4565572185106
         },
         {
           "name": "Chang Bingyu",
           "rank": 8,
-          "elo": 1534.8608052941688
+          "elo": 1535.5946567168426
         },
         {
           "name": "Wu Yize",
           "rank": 10,
-          "elo": 1528.450826624788
+          "elo": 1528.8662745032602
         }
       ]
     },
@@ -292,22 +292,22 @@
         {
           "name": "Judd Trump",
           "rank": 1,
-          "elo": 1574.9937134599618
+          "elo": 1575.3671748116058
         },
         {
           "name": "Zhao Xintong",
           "rank": 2,
-          "elo": 1555.3311442681613
+          "elo": 1555.8914200448057
         },
         {
           "name": "Chang Bingyu",
           "rank": 8,
-          "elo": 1530.4280753987862
+          "elo": 1531.135586654255
         },
         {
           "name": "Wu Yize",
           "rank": 10,
-          "elo": 1526.619093336793
+          "elo": 1527.0465281107934
         }
       ]
     },
@@ -317,22 +317,22 @@
         {
           "name": "Judd Trump",
           "rank": 1,
-          "elo": 1569.942588049378
+          "elo": 1569.982793722334
         },
         {
           "name": "Zhao Xintong",
           "rank": 2,
-          "elo": 1548.3293055599866
+          "elo": 1548.530299643444
         },
         {
           "name": "Chang Bingyu",
           "rank": 8,
-          "elo": 1524.017218420004
+          "elo": 1524.2937793335607
         },
         {
           "name": "Wu Yize",
           "rank": 9,
-          "elo": 1523.740683004659
+          "elo": 1523.8554222737248
         }
       ]
     },
@@ -342,22 +342,22 @@
         {
           "name": "Judd Trump",
           "rank": 1,
-          "elo": 1562.4047834526546
+          "elo": 1561.9771384154117
         },
         {
           "name": "Zhao Xintong",
           "rank": 3,
-          "elo": 1539.1144688644858
+          "elo": 1538.8022365436038
         },
         {
           "name": "Chang Bingyu",
-          "rank": 11,
-          "elo": 1516.5244528384528
+          "rank": 10,
+          "elo": 1516.2402866488435
         },
         {
           "name": "Wu Yize",
           "rank": 8,
-          "elo": 1519.8570258526718
+          "elo": 1519.494693780266
         }
       ]
     }

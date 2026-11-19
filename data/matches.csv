@@ -6842,7 +6842,7 @@ date,event,country,p1,p2,f1,f2,nat1,nat2,stage
 2026-06-30,2026 Championship League (ranking),England,Martin O'Donnell,Antoni Kowalski,3,0,ENG,POL,main
 2026-06-30,2026 Championship League (ranking),England,Martin O'Donnell,Hammad Miah,2,2,ENG,ENG,main
 2026-07-01,2026 Championship League (ranking),England,Chatchapong Nasa,Wang Xinbo,2,2,THA,CHN,main
-2026-07-01,2026 Championship League (ranking),England,Chris Wakelin,Brian Ochoiski,1,3,ENG,,main
+2026-07-01,2026 Championship League (ranking),England,Chris Wakelin,Brian Ochoiski,1,3,ENG,FRA,main
 2026-07-01,2026 Championship League (ranking),England,Chris Wakelin,Luke Pinches,3,0,ENG,,main
 2026-07-01,2026 Championship League (ranking),England,Chris Wakelin,Yao Pengcheng,3,0,ENG,CHN,main
 2026-07-01,2026 Championship League (ranking),England,Ishpreet Singh Chadha,Chatchapong Nasa,3,0,IND,THA,main
@@ -6850,8 +6850,8 @@ date,event,country,p1,p2,f1,f2,nat1,nat2,stage
 2026-07-01,2026 Championship League (ranking),England,Lei Peifan,Chatchapong Nasa,3,0,CHN,THA,main
 2026-07-01,2026 Championship League (ranking),England,Lei Peifan,Ishpreet Singh Chadha,3,1,CHN,IND,main
 2026-07-01,2026 Championship League (ranking),England,Lei Peifan,Wang Xinbo,2,2,CHN,CHN,main
-2026-07-01,2026 Championship League (ranking),England,Luke Pinches,Brian Ochoiski,3,1,,,main
-2026-07-01,2026 Championship League (ranking),England,Yao Pengcheng,Brian Ochoiski,3,0,CHN,,main
+2026-07-01,2026 Championship League (ranking),England,Luke Pinches,Brian Ochoiski,3,1,,FRA,main
+2026-07-01,2026 Championship League (ranking),England,Yao Pengcheng,Brian Ochoiski,3,0,CHN,FRA,main
 2026-07-01,2026 Championship League (ranking),England,Yao Pengcheng,Luke Pinches,1,3,CHN,,main
 2026-07-02,2026 Championship League (ranking),England,Daniel Wells,Stuart Carrington,2,2,WAL,ENG,main
 2026-07-02,2026 Championship League (ranking),England,Daniel Wells,Thanawat Tirapongpaiboon,0,3,WAL,THA,main
@@ -7771,15 +7771,97 @@ date,event,country,p1,p2,f1,f2,nat1,nat2,stage
 2026-11-07,2026 International Championship,China,Yuan Sijun,Chang Bingyu,2,6,CHN,CHN,main
 2026-11-07,2026 International Championship,China,Zhang Anda,Huang Jiahao,6,3,CHN,CHN,main
 2026-11-07,2026 International Championship,China,Zhou Yuelong,Liam Davies,2,6,CHN,WAL,main
-2026-11-12,2026 Champion of Champions,England,Barry Hawkins,Chris Wakelin,1,4,ENG,ENG,main
-2026-11-12,2026 Champion of Champions,England,Judd Trump,Jak Jones,3,4,ENG,WAL,main
-2026-11-12,2026 Champion of Champions,England,Kyren Wilson,Ali Carter,4,2,ENG,ENG,main
-2026-11-12,2026 Champion of Champions,England,Mark Selby,Alfie Burden,4,3,ENG,ENG,main
-2026-11-12,2026 Champion of Champions,England,Mark Selby,Chris Wakelin,2,6,ENG,ENG,main
-2026-11-12,2026 Champion of Champions,England,Neil Robertson,Jak Jones,6,3,AUS,WAL,main
-2026-11-12,2026 Champion of Champions,England,Neil Robertson,Panchaya Channoi,4,2,AUS,THA,main
-2026-11-12,2026 Champion of Champions,England,Shaun Murphy,Chang Bingyu,6,0,ENG,CHN,main
-2026-11-12,2026 Champion of Champions,England,Shaun Murphy,Ronnie O'Sullivan,4,0,ENG,ENG,main
-2026-11-12,2026 Champion of Champions,England,Wu Yize,Chang Bingyu,3,4,CHN,CHN,main
-2026-11-12,2026 Champion of Champions,England,Zhao Xintong,Kyren Wilson,1,6,CHN,ENG,main
-2026-11-12,2026 Champion of Champions,England,Zhao Xintong,Thepchaiya Un-Nooh,4,0,CHN,THA,main
+2026-11-15,2026 Champion of Champions,England,Barry Hawkins,Chris Wakelin,1,4,ENG,ENG,main
+2026-11-15,2026 Champion of Champions,England,Chris Wakelin,Kyren Wilson,8,10,ENG,ENG,main
+2026-11-15,2026 Champion of Champions,England,Chris Wakelin,Neil Robertson,6,2,ENG,AUS,main
+2026-11-15,2026 Champion of Champions,England,Judd Trump,Jak Jones,3,4,ENG,WAL,main
+2026-11-15,2026 Champion of Champions,England,Kyren Wilson,Ali Carter,4,2,ENG,ENG,main
+2026-11-15,2026 Champion of Champions,England,Mark Selby,Alfie Burden,4,3,ENG,ENG,main
+2026-11-15,2026 Champion of Champions,England,Mark Selby,Chris Wakelin,2,6,ENG,ENG,main
+2026-11-15,2026 Champion of Champions,England,Neil Robertson,Jak Jones,6,3,AUS,WAL,main
+2026-11-15,2026 Champion of Champions,England,Neil Robertson,Panchaya Channoi,4,2,AUS,THA,main
+2026-11-15,2026 Champion of Champions,England,Shaun Murphy,Chang Bingyu,6,0,ENG,CHN,main
+2026-11-15,2026 Champion of Champions,England,Shaun Murphy,Kyren Wilson,4,6,ENG,ENG,main
+2026-11-15,2026 Champion of Champions,England,Shaun Murphy,Ronnie O'Sullivan,4,0,ENG,ENG,main
+2026-11-15,2026 Champion of Champions,England,Wu Yize,Chang Bingyu,3,4,CHN,CHN,main
+2026-11-15,2026 Champion of Champions,England,Zhao Xintong,Kyren Wilson,1,6,CHN,ENG,main
+2026-11-15,2026 Champion of Champions,England,Zhao Xintong,Thepchaiya Un-Nooh,4,0,CHN,THA,main
+2026-11-19,2027 German Masters,Germany,Aaron Hill,Ian Burns,5,2,IRL,ENG,qualifying
+2026-11-19,2027 German Masters,Germany,Anthony McGill,Deng Haohui,5,0,SCO,CHN,qualifying
+2026-11-19,2027 German Masters,Germany,Artemijs Žižins,Antoni Kowalski,5,4,LVA,POL,qualifying
+2026-11-19,2027 German Masters,Germany,Ashley Carty,Oliver Brown,1,5,ENG,ENG,qualifying
+2026-11-19,2027 German Masters,Germany,Ben Mertens,Chatchapong Nasa,3,5,BEL,THA,qualifying
+2026-11-19,2027 German Masters,Germany,Ben Woollaston,Cheung Ka Wai,4,5,ENG,HKG,qualifying
+2026-11-19,2027 German Masters,Germany,Daniel Wells,Sahil Nayyar,5,0,WAL,CAN,qualifying
+2026-11-19,2027 German Masters,Germany,David Gilbert,Artemijs Žižins,5,4,ENG,LVA,qualifying
+2026-11-19,2027 German Masters,Germany,David Grace,Anton Kazakov,5,2,ENG,UKR,qualifying
+2026-11-19,2027 German Masters,Germany,David Lilley,Luo Zetao,4,5,ENG,CHN,qualifying
+2026-11-19,2027 German Masters,Germany,Ding Junhui,Zak Surety,5,3,CHN,ENG,qualifying
+2026-11-19,2027 German Masters,Germany,Dylan Emery,Craig Steadman,3,5,WAL,ENG,qualifying
+2026-11-19,2027 German Masters,Germany,Elliot Slessor,Tom Ford,5,4,ENG,ENG,qualifying
+2026-11-19,2027 German Masters,Germany,Fan Zhengyi,Thanawat Tirapongpaiboon,5,3,CHN,THA,qualifying
+2026-11-19,2027 German Masters,Germany,Florian Nüßle,Chatchapong Nasa,3,5,AUT,THA,qualifying
+2026-11-19,2027 German Masters,Germany,Gao Yang,Mina Awad,5,1,CHN,EGY,qualifying
+2026-11-19,2027 German Masters,Germany,Gary Wilson,Lyu Haotian,5,4,ENG,CHN,qualifying
+2026-11-19,2027 German Masters,Germany,Gong Chenzhi,Andrew Higginson,3,5,CHN,ENG,qualifying
+2026-11-19,2027 German Masters,Germany,He Guoqiang,Ishpreet Singh Chadha,3,5,CHN,IND,qualifying
+2026-11-19,2027 German Masters,Germany,Hossein Vafaei,David Grace,4,5,IRN,ENG,qualifying
+2026-11-19,2027 German Masters,Germany,Ian Burns,Paul Norris,5,0,ENG,ENG,qualifying
+2026-11-19,2027 German Masters,Germany,Ishpreet Singh Chadha,Liu Yang,5,1,IND,CHN,qualifying
+2026-11-19,2027 German Masters,Germany,Iulian Boiko,Jimmy White,4,5,UKR,ENG,qualifying
+2026-11-19,2027 German Masters,Germany,Jack Lisowski,Aaron Hill,5,3,ENG,IRL,qualifying
+2026-11-19,2027 German Masters,Germany,Jackson Page,Ashley Hugill,5,2,WAL,ENG,qualifying
+2026-11-19,2027 German Masters,Germany,Jak Jones,Anthony McGill,2,5,WAL,SCO,qualifying
+2026-11-19,2027 German Masters,Germany,Jamie Clarke,Huang Jiahao,5,1,WAL,CHN,qualifying
+2026-11-19,2027 German Masters,Germany,Jamie Jones,Steven Hallworth,5,1,WAL,ENG,qualifying
+2026-11-19,2027 German Masters,Germany,Jiang Jun,Joshua Thomond,5,0,CHN,ENG,qualifying
+2026-11-19,2027 German Masters,Germany,Jimmy Robertson,Leone Crowley,3,5,ENG,IRL,qualifying
+2026-11-19,2027 German Masters,Germany,Joe O'Connor,Fan Zhengyi,1,5,ENG,CHN,qualifying
+2026-11-19,2027 German Masters,Germany,Jordan Brown,Sahil Nayyar,3,5,NIR,CAN,qualifying
+2026-11-19,2027 German Masters,Germany,Lan Yuhao,Sean O'Sullivan,3,5,CHN,ENG,qualifying
+2026-11-19,2027 German Masters,Germany,Lei Peifan,Daniel Wells,2,5,CHN,WAL,qualifying
+2026-11-19,2027 German Masters,Germany,Leone Crowley,Stuart Carrington,5,3,IRL,ENG,qualifying
+2026-11-19,2027 German Masters,Germany,Liam Davies,Alfie Burden,4,5,WAL,ENG,qualifying
+2026-11-19,2027 German Masters,Germany,Liam Graham,Julien Leclercq,0,5,SCO,BEL,qualifying
+2026-11-19,2027 German Masters,Germany,Liam Highfield,Liam Pullen,1,5,ENG,ENG,qualifying
+2026-11-19,2027 German Masters,Germany,Liam Pullen,Bai Yulu,5,0,ENG,CHN,qualifying
+2026-11-19,2027 German Masters,Germany,Liu Hongyu,Alfie Burden,5,2,CHN,ENG,qualifying
+2026-11-19,2027 German Masters,Germany,Liu Wenwei,Alexander Ursenbacher,5,3,CHN,SUI,qualifying
+2026-11-19,2027 German Masters,Germany,Long Zehuang,Gao Yang,5,4,CHN,CHN,qualifying
+2026-11-19,2027 German Masters,Germany,Louis Heathcote,Hammad Miah,4,5,ENG,ENG,qualifying
+2026-11-19,2027 German Masters,Germany,Luca Brecel,Yao Pengcheng,5,2,BEL,CHN,qualifying
+2026-11-19,2027 German Masters,Germany,Lyu Haotian,Panchaya Channoi,5,1,CHN,THA,qualifying
+2026-11-19,2027 German Masters,Germany,Marco Fu,Oliver Sykes,5,2,HKG,ENG,qualifying
+2026-11-19,2027 German Masters,Germany,Martin O'Donnell,Michał Szubarczyk,5,2,ENG,POL,qualifying
+2026-11-19,2027 German Masters,Germany,Mateusz Baranowski,Cheung Ka Wai,0,5,POL,HKG,qualifying
+2026-11-19,2027 German Masters,Germany,Matthew Selt,Jimmy White,4,5,ENG,ENG,qualifying
+2026-11-19,2027 German Masters,Germany,Matthew Stevens,Marco Fu,1,5,WAL,HKG,qualifying
+2026-11-19,2027 German Masters,Germany,Michael Holt,Lyu Haotian,1,5,ENG,CHN,qualifying
+2026-11-19,2027 German Masters,Germany,Michał Szubarczyk,Phil O'Kane,5,1,POL,ENG,qualifying
+2026-11-19,2027 German Masters,Germany,Mitchell Mann,Joshua Thomond,3,5,ENG,ENG,qualifying
+2026-11-19,2027 German Masters,Germany,Noppon Saengkham,Oliver Brown,3,5,THA,ENG,qualifying
+2026-11-19,2027 German Masters,Germany,Oliver Lines,Jamie Clarke,4,5,ENG,WAL,qualifying
+2026-11-19,2027 German Masters,Germany,Pang Junxu,Jimmy White,4,5,CHN,ENG,qualifying
+2026-11-19,2027 German Masters,Germany,Reanne Evans,Fergal Quinn,5,3,ENG,NIR,qualifying
+2026-11-19,2027 German Masters,Germany,Ricky Walden,Andrew Higginson,5,4,ENG,ENG,qualifying
+2026-11-19,2027 German Masters,Germany,Robbie Williams,Reanne Evans,5,0,ENG,ENG,qualifying
+2026-11-19,2027 German Masters,Germany,Ross Muir,Deng Haohui,4,5,SCO,CHN,qualifying
+2026-11-19,2027 German Masters,Germany,Ryan Day,David Grace,4,5,WAL,ENG,qualifying
+2026-11-19,2027 German Masters,Germany,Sam Craigie,Hammad Miah,5,2,ENG,ENG,qualifying
+2026-11-19,2027 German Masters,Germany,Scott Donaldson,Craig Steadman,4,5,SCO,ENG,qualifying
+2026-11-19,2027 German Masters,Germany,Si Jiahui,Stan Moody,5,3,CHN,ENG,qualifying
+2026-11-19,2027 German Masters,Germany,Stan Moody,Sean O'Sullivan,5,0,ENG,ENG,qualifying
+2026-11-19,2027 German Masters,Germany,Steven Hallworth,Ng On-yee,5,3,ENG,HKG,qualifying
+2026-11-19,2027 German Masters,Germany,Stuart Bingham,Julien Leclercq,5,4,ENG,BEL,qualifying
+2026-11-19,2027 German Masters,Germany,Thanawat Tirapongpaiboon,Connor Benzey,5,2,THA,ENG,qualifying
+2026-11-19,2027 German Masters,Germany,Thepchaiya Un-Nooh,Luca Brecel,1,5,THA,BEL,qualifying
+2026-11-19,2027 German Masters,Germany,Tom Ford,Liu Wenwei,5,1,ENG,CHN,qualifying
+2026-11-19,2027 German Masters,Germany,Wang Xinbo,Ashley Hugill,0,5,CHN,ENG,qualifying
+2026-11-19,2027 German Masters,Germany,Xu Si,Julien Leclercq,1,5,CHN,BEL,qualifying
+2026-11-19,2027 German Masters,Germany,Xu Yichen,Luo Zetao,2,5,CHN,CHN,qualifying
+2026-11-19,2027 German Masters,Germany,Yao Pengcheng,Mahmoud El Hareedy,5,0,CHN,EGY,qualifying
+2026-11-19,2027 German Masters,Germany,Yuan Sijun,Leone Crowley,5,3,CHN,IRL,qualifying
+2026-11-19,2027 German Masters,Germany,Zak Surety,Michael Larkov,5,1,ENG,UKR,qualifying
+2026-11-19,2027 German Masters,Germany,Zhang Anda,Oliver Brown,5,2,CHN,ENG,qualifying
+2026-11-19,2027 German Masters,Germany,Zhao Hanyang,Michael Larkov,1,5,CHN,UKR,qualifying
+2026-11-19,2027 German Masters,Germany,Zhou Yuelong,Jackson Page,5,3,CHN,WAL,qualifying
