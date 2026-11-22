@@ -219,6 +219,10 @@ def bracket_matches(body):
             toks.append(("S", sc))
         elif (pl := parse_player(p)):
             toks.append(("P", pl))
+        elif _is_bye(p):
+            # a bye keeps its place (P None): dropping it shifted every later pairing of a RoundN draw by one
+            # ("|| bye |w/d | Ben Woollaston |w/o", 2019 Riga Masters: Chen Zifan 4:4 Yan Bingtao)
+            toks.append(("P", None))
     i = 0
     while i < len(toks):  # P S [S(seed)] P S
         if toks[i][0] == "P" and i + 3 < len(toks) and toks[i + 1][0] == "S":
@@ -226,11 +230,18 @@ def bracket_matches(body):
             if toks[j][0] == "S" and j + 2 < len(toks):
                 j += 1
             if j + 1 < len(toks) and toks[j][0] == "P" and toks[j + 1][0] == "S":
-                out.append((toks[i][1], toks[i + 1][1], toks[j][1], toks[j + 1][1]))
+                if toks[i][1] and toks[j][1]:  # a bye is no match, but it uses up its row
+                    out.append((toks[i][1], toks[i + 1][1], toks[j][1], toks[j + 1][1]))
                 i = j + 2
                 continue
         i += 1
     return out
+
+
+def _is_bye(cell):
+    """A bye / withdrawn / to-be-decided cell: no player, but it fills a slot of the draw."""
+    s = plain(unwrap(cell)).lower()
+    return s in NOT_PLAYERS - {""} or s.startswith("bye")
 
 
 NARRATIVE = re.compile(r"\b(?:win|wins|won|beat|beats|defeated|losing|lost|led|came\s+from|runner-up|"

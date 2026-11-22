@@ -42,6 +42,21 @@ class BracketTests(unittest.TestCase):
 
 
 class PlayerTests(unittest.TestCase):
+    def test_roundn_rows_with_a_bye_keep_their_pairing(self):
+        # 2019 Riga Masters: "|| bye |w/d | Woollaston |w/o" rows; dropping the bye cell shifted every later
+        # pairing by one (Woollaston v Petrov, Chen Zifan 4:4 Yan Bingtao) - Codex review 2026-11-22
+        text = """{{#invoke:RoundN|main|columns=6
+| RD1='''Last 64'''
+|| ''[[bye (sports)|bye]]'' |w/d |'''{{flagathlete|[[Ben Woollaston]]|ENG}}'''|'''w/o'''
+||{{flagathlete|[[Andres Petrov]]|EST}}|0 |{{flagathlete|[[Chen Zifan]]|CHN}}|4
+||{{flagathlete|[[Yan Bingtao]]|CHN}}|4 |{{flagathlete|[[Rod Lawler]]|ENG}}|2
+||{{flagathlete|[[Bai Langning]]|CHN}}|w/d |'''{{flagathlete|[[Alan McManus]]|SCO}}'''|'''w/o'''
+||{{flagathlete|[[Lukas Kleckers]]|GER}}|4 |{{flagathlete|[[Zhang Anda]]|CHN}}|3
+}}"""
+        got = [m for m in pairs(pm.section_matches(text)) if isinstance(m[1], int) and isinstance(m[3], int)]
+        self.assertEqual(got, [("Andres Petrov", 0, "Chen Zifan", 4), ("Yan Bingtao", 4, "Rod Lawler", 2),
+                               ("Lukas Kleckers", 4, "Zhang Anda", 3)])
+
     def test_nowrap_and_match_prefix(self):
         # Jiang Jun's league results were dropped while his name sat inside {{nowrap}}
         self.assertEqual(pm.parse_player("{{nowrap|{{flagicon|CHN}} [[Jiang Jun]]}}")[::2], ("Jiang Jun", "CHN"))

@@ -54,7 +54,7 @@
     "data/names_zh.json": "565a19045c90f0c51a30d50024927676f7388a3810a1011def5e48e2262510db",
     "data/snooker_org_mapping.json": "e156781e991544a666d7f3a15afd2b224fc47abfcac4da2d2189068b33ecca14",
     "src/model.py": "ab6db129855802898b9a7ad6ac2096cbd03127a879cb6256c49fc57341cd0e42",
-    "src/parse_matches.py": "2de0b6ca9a198a03fecc80d78e00b88948a25c9a8e3e64601a85a65b01b0d8e2",
+    "src/parse_matches.py": "d97441a0276783e609400397ecff1b988c27e99b4076972c77e35fb8b2dc59c8",
     "src/parse_centuries.py": "a8dc58e14084b848f1a85b39b3a6fafd5184fb2dcf6568a664748de2869c2acb",
     "src/fetch_wiki.py": "f7b84b4e1e71f529e48600eca48dd8b5cba5f905b2978d7289b9db9d8023bff1",
     "src/report.py": "85ad6bbc48dec12bc48a8a6cf9028b2e208c4eeed70f528e74267930e2caeb87",
