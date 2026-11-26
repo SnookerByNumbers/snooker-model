@@ -4338,7 +4338,7 @@ date,event,country,p1,p2,f1,f2,nat1,nat2,stage
 2025-06-24,2025 Wuhan Open (snooker),China,Jak Jones,Oliver Brown,5,0,WAL,ENG,qualifying
 2025-06-24,2025 Wuhan Open (snooker),China,Jamie Jones,Liu Wenwei,5,4,WAL,CHN,qualifying
 2025-06-24,2025 Wuhan Open (snooker),China,Jimmy Robertson,Liam Pullen,5,4,ENG,ENG,qualifying
-2025-06-24,2025 Wuhan Open (snooker),China,Joe O'Connor,Jiang Jun,5,0,ENG,CHN,qualifying
+2025-06-24,2025 Wuhan Open (snooker),China,Joe O'Connor,Jiang Jun,5,5,ENG,CHN,qualifying
 2025-06-24,2025 Wuhan Open (snooker),China,John Higgins,Huang Jiahao,5,2,SCO,CHN,qualifying
 2025-06-24,2025 Wuhan Open (snooker),China,Jordan Brown,Duane Jones,5,1,NIR,WAL,qualifying
 2025-06-24,2025 Wuhan Open (snooker),China,Judd Trump,Farakh Ajaib,5,1,ENG,PAK,qualifying
@@ -7865,3 +7865,114 @@ date,event,country,p1,p2,f1,f2,nat1,nat2,stage
 2026-11-19,2027 German Masters,Germany,Zhang Anda,Oliver Brown,5,2,CHN,ENG,qualifying
 2026-11-19,2027 German Masters,Germany,Zhao Hanyang,Michael Larkov,1,5,CHN,UKR,qualifying
 2026-11-19,2027 German Masters,Germany,Zhou Yuelong,Jackson Page,5,3,CHN,WAL,qualifying
+2026-11-26,2026 UK Championship,England,Aaron Hill,Ben Mertens,5,6,IRL,BEL,qualifying
+2026-11-26,2026 UK Championship,England,Alexander Ursenbacher,Vladislav Gradinari,6,3,SUI,MDA,qualifying
+2026-11-26,2026 UK Championship,England,Alfie Burden,Mahmoud El Hareedy,6,3,ENG,EGY,qualifying
+2026-11-26,2026 UK Championship,England,Andrew Higginson,Farakh Ajaib,5,6,ENG,PAK,qualifying
+2026-11-26,2026 UK Championship,England,Anthony McGill,Liam Highfield,4,6,SCO,ENG,qualifying
+2026-11-26,2026 UK Championship,England,Antoni Kowalski,Ryan Davies,6,3,POL,ENG,qualifying
+2026-11-26,2026 UK Championship,England,Artemijs Žižins,Liu Yang,6,1,LVA,CHN,qualifying
+2026-11-26,2026 UK Championship,England,Ashley Carty,Bai Yulu,6,4,ENG,CHN,qualifying
+2026-11-26,2026 UK Championship,England,Ashley Hugill,Aaron Busuttil,6,4,ENG,MLT,qualifying
+2026-11-26,2026 UK Championship,England,Ben Mertens,Jimmy White,6,2,BEL,ENG,qualifying
+2026-11-26,2026 UK Championship,England,Ben Woollaston,Mark Joyce,5,6,ENG,ENG,qualifying
+2026-11-26,2026 UK Championship,England,Chatchapong Nasa,Dean Young,6,1,THA,SCO,qualifying
+2026-11-26,2026 UK Championship,England,Cheung Ka Wai,Michael Larkov,6,2,HKG,UKR,qualifying
+2026-11-26,2026 UK Championship,England,Connor Benzey,Craig Steadman,4,6,ENG,ENG,qualifying
+2026-11-26,2026 UK Championship,England,Daniel Wells,Ricky Walden,6,5,WAL,ENG,qualifying
+2026-11-26,2026 UK Championship,England,Daniel Wells,Zhou Yuelong,4,6,WAL,CHN,qualifying
+2026-11-26,2026 UK Championship,England,David Gilbert,Julien Leclercq,5,6,ENG,BEL,qualifying
+2026-11-26,2026 UK Championship,England,David Grace,Artemijs Žižins,2,6,ENG,LVA,qualifying
+2026-11-26,2026 UK Championship,England,David Lilley,Luo Zetao,5,6,ENG,CHN,qualifying
+2026-11-26,2026 UK Championship,England,Ding Junhui,Gao Yang,6,3,CHN,CHN,qualifying
+2026-11-26,2026 UK Championship,England,Ding Junhui,Robbie Williams,6,5,CHN,ENG,qualifying
+2026-11-26,2026 UK Championship,England,Dylan Emery,Liam Graham,6,3,WAL,SCO,qualifying
+2026-11-26,2026 UK Championship,England,Elliot Slessor,Artemijs Žižins,3,6,ENG,LVA,qualifying
+2026-11-26,2026 UK Championship,England,Fan Zhengyi,Alfie Burden,6,4,CHN,ENG,qualifying
+2026-11-26,2026 UK Championship,England,Fan Zhengyi,Stuart Bingham,6,5,CHN,ENG,qualifying
+2026-11-26,2026 UK Championship,England,Fergal Quinn,Krzysztof Czapnik,6,0,NIR,POL,qualifying
+2026-11-26,2026 UK Championship,England,Florian Nüßle,Sanderson Lam,0,6,AUT,ENG,qualifying
+2026-11-26,2026 UK Championship,England,Gao Yang,Reanne Evans,6,1,CHN,ENG,qualifying
+2026-11-26,2026 UK Championship,England,Gary Wilson,Lyu Haotian,3,6,ENG,CHN,qualifying
+2026-11-26,2026 UK Championship,England,Gong Chenzhi,Paul Norris,6,2,CHN,ENG,qualifying
+2026-11-26,2026 UK Championship,England,He Guoqiang,Farakh Ajaib,6,2,CHN,PAK,qualifying
+2026-11-26,2026 UK Championship,England,Hossein Vafaei,Ben Mertens,6,3,IRN,BEL,qualifying
+2026-11-26,2026 UK Championship,England,Hossein Vafaei,Ishpreet Singh Chadha,6,5,IRN,IND,qualifying
+2026-11-26,2026 UK Championship,England,Huang Jiahao,Panchaya Channoi,6,3,CHN,THA,qualifying
+2026-11-26,2026 UK Championship,England,Ian Burns,Xu Yichen,6,1,ENG,CHN,qualifying
+2026-11-26,2026 UK Championship,England,Ishpreet Singh Chadha,Sanderson Lam,6,1,IND,ENG,qualifying
+2026-11-26,2026 UK Championship,England,Iulian Boiko,Leone Crowley,6,0,UKR,IRL,qualifying
+2026-11-26,2026 UK Championship,England,Jack Lisowski,Ian Burns,6,4,ENG,ENG,qualifying
+2026-11-26,2026 UK Championship,England,Jack Lisowski,Mark Joyce,6,4,ENG,ENG,qualifying
+2026-11-26,2026 UK Championship,England,Jackson Page,Scott Donaldson,4,6,WAL,SCO,qualifying
+2026-11-26,2026 UK Championship,England,Jak Jones,Joshua Thomond,6,0,WAL,ENG,qualifying
+2026-11-26,2026 UK Championship,England,Jak Jones,Matthew Selt,3,6,WAL,ENG,qualifying
+2026-11-26,2026 UK Championship,England,Jamie Clarke,Riley Powell,4,6,WAL,WAL,qualifying
+2026-11-26,2026 UK Championship,England,Jamie Jones,Huang Jiahao,6,3,WAL,CHN,qualifying
+2026-11-26,2026 UK Championship,England,Jiang Jun,Cheung Ka Wai,3,6,CHN,HKG,qualifying
+2026-11-26,2026 UK Championship,England,Jimmy Robertson,Long Zehuang,5,6,ENG,CHN,qualifying
+2026-11-26,2026 UK Championship,England,Jimmy White,Brian Ochoiski,6,1,ENG,FRA,qualifying
+2026-11-26,2026 UK Championship,England,Joe O'Connor,Gong Chenzhi,6,2,ENG,CHN,qualifying
+2026-11-26,2026 UK Championship,England,Joe O'Connor,Jamie Jones,6,4,ENG,WAL,qualifying
+2026-11-26,2026 UK Championship,England,Jordan Brown,Thanawat Tirapongpaiboon,6,4,NIR,THA,qualifying
+2026-11-26,2026 UK Championship,England,Julien Leclercq,Phil O'Kane,6,3,BEL,ENG,qualifying
+2026-11-26,2026 UK Championship,England,Julien Leclercq,Stephen Maguire,2,6,BEL,SCO,qualifying
+2026-11-26,2026 UK Championship,England,Lan Yuhao,Joshua Thomond,3,6,CHN,ENG,qualifying
+2026-11-26,2026 UK Championship,England,Lei Peifan,Dylan Emery,3,6,CHN,WAL,qualifying
+2026-11-26,2026 UK Championship,England,Leone Crowley,Sean O'Sullivan,6,2,IRL,ENG,qualifying
+2026-11-26,2026 UK Championship,England,Liam Davies,Stuart Carrington,6,4,WAL,ENG,qualifying
+2026-11-26,2026 UK Championship,England,Liam Graham,Mark Lloyd,6,2,SCO,ENG,qualifying
+2026-11-26,2026 UK Championship,England,Liam Highfield,Chatchapong Nasa,6,4,ENG,THA,qualifying
+2026-11-26,2026 UK Championship,England,Liam Pullen,Deng Haohui,6,3,ENG,CHN,qualifying
+2026-11-26,2026 UK Championship,England,Liu Hongyu,Ashley Hugill,6,1,CHN,ENG,qualifying
+2026-11-26,2026 UK Championship,England,Long Zehuang,Antoni Kowalski,6,4,CHN,POL,qualifying
+2026-11-26,2026 UK Championship,England,Long Zehuang,Artemijs Žižins,2,6,CHN,LVA,qualifying
+2026-11-26,2026 UK Championship,England,Louis Heathcote,Riley Powell,1,6,ENG,WAL,qualifying
+2026-11-26,2026 UK Championship,England,Luca Brecel,Luo Zetao,6,1,BEL,CHN,qualifying
+2026-11-26,2026 UK Championship,England,Luo Zetao,Sebastian Milewski,6,5,CHN,POL,qualifying
+2026-11-26,2026 UK Championship,England,Lyu Haotian,Ashley Carty,6,5,CHN,ENG,qualifying
+2026-11-26,2026 UK Championship,England,Lyu Haotian,Liam Highfield,3,6,CHN,ENG,qualifying
+2026-11-26,2026 UK Championship,England,Marco Fu,Gong Chenzhi,2,6,HKG,CHN,qualifying
+2026-11-26,2026 UK Championship,England,Martin O'Donnell,Craig Steadman,6,3,ENG,ENG,qualifying
+2026-11-26,2026 UK Championship,England,Mateusz Baranowski,Stuart Carrington,3,6,POL,ENG,qualifying
+2026-11-26,2026 UK Championship,England,Matthew Selt,He Guoqiang,6,5,ENG,CHN,qualifying
+2026-11-26,2026 UK Championship,England,Matthew Stevens,Alfie Burden,2,6,WAL,ENG,qualifying
+2026-11-26,2026 UK Championship,England,Michael Holt,Martin O'Donnell,6,3,ENG,ENG,qualifying
+2026-11-26,2026 UK Championship,England,Michael Holt,Si Jiahui,6,3,ENG,CHN,qualifying
+2026-11-26,2026 UK Championship,England,Michał Szubarczyk,Joshua Thomond,2,6,POL,ENG,qualifying
+2026-11-26,2026 UK Championship,England,Mitchell Mann,Deng Haohui,5,6,ENG,CHN,qualifying
+2026-11-26,2026 UK Championship,England,Noppon Saengkham,Jamie Jones,1,6,THA,WAL,qualifying
+2026-11-26,2026 UK Championship,England,Oliver Brown,Anton Kazakov,1,6,ENG,UKR,qualifying
+2026-11-26,2026 UK Championship,England,Oliver Lines,Oliver Sykes,3,6,ENG,ENG,qualifying
+2026-11-26,2026 UK Championship,England,Oliver Sykes,Peter Lines,6,2,ENG,ENG,qualifying
+2026-11-26,2026 UK Championship,England,Pang Junxu,Riley Powell,4,6,CHN,WAL,qualifying
+2026-11-26,2026 UK Championship,England,Reanne Evans,Daniel Boyes,6,4,ENG,ENG,qualifying
+2026-11-26,2026 UK Championship,England,Ricky Walden,Fergal Quinn,6,0,ENG,NIR,qualifying
+2026-11-26,2026 UK Championship,England,Robbie Williams,Alexander Ursenbacher,6,3,ENG,SUI,qualifying
+2026-11-26,2026 UK Championship,England,Ross Muir,Wang Xinbo,5,6,SCO,CHN,qualifying
+2026-11-26,2026 UK Championship,England,Ryan Day,Robbie Williams,1,6,WAL,ENG,qualifying
+2026-11-26,2026 UK Championship,England,Sahil Nayyar,Mark Joyce,1,6,CAN,ENG,qualifying
+2026-11-26,2026 UK Championship,England,Sam Craigie,Julien Leclercq,1,6,ENG,BEL,qualifying
+2026-11-26,2026 UK Championship,England,Scott Donaldson,Anton Kazakov,6,1,SCO,UKR,qualifying
+2026-11-26,2026 UK Championship,England,Scott Donaldson,Dylan Emery,3,6,SCO,WAL,qualifying
+2026-11-26,2026 UK Championship,England,Si Jiahui,Iulian Boiko,6,1,CHN,UKR,qualifying
+2026-11-26,2026 UK Championship,England,Stan Moody,Liu Hongyu,6,4,ENG,CHN,qualifying
+2026-11-26,2026 UK Championship,England,Stephen Maguire,Jordan Brown,6,1,SCO,NIR,qualifying
+2026-11-26,2026 UK Championship,England,Steven Hallworth,Mina Awad,6,3,ENG,EGY,qualifying
+2026-11-26,2026 UK Championship,England,Stuart Bingham,Liam Davies,6,1,ENG,WAL,qualifying
+2026-11-26,2026 UK Championship,England,Thanawat Tirapongpaiboon,Paul Deaville,6,5,THA,ENG,qualifying
+2026-11-26,2026 UK Championship,England,Thepchaiya Un-Nooh,Steven Hallworth,6,1,THA,ENG,qualifying
+2026-11-26,2026 UK Championship,England,Tom Ford,Cheung Ka Wai,6,2,ENG,HKG,qualifying
+2026-11-26,2026 UK Championship,England,Tom Ford,Riley Powell,6,5,ENG,WAL,qualifying
+2026-11-26,2026 UK Championship,England,Wang Xinbo,Hammad Miah,6,5,CHN,ENG,qualifying
+2026-11-26,2026 UK Championship,England,Xu Si,Mark Joyce,5,6,CHN,ENG,qualifying
+2026-11-26,2026 UK Championship,England,Xu Yichen,Edward Jones,6,3,CHN,ENG,qualifying
+2026-11-26,2026 UK Championship,England,Yao Pengcheng,Zhao Hanyang,6,2,CHN,CHN,qualifying
+2026-11-26,2026 UK Championship,England,Yuan Sijun,Liam Pullen,6,4,CHN,ENG,qualifying
+2026-11-26,2026 UK Championship,England,Yuan Sijun,Luca Brecel,6,4,CHN,BEL,qualifying
+2026-11-26,2026 UK Championship,England,Zak Surety,Oliver Sykes,6,1,ENG,ENG,qualifying
+2026-11-26,2026 UK Championship,England,Zak Surety,Thepchaiya Un-Nooh,5,6,ENG,THA,qualifying
+2026-11-26,2026 UK Championship,England,Zhang Anda,Stan Moody,6,0,CHN,ENG,qualifying
+2026-11-26,2026 UK Championship,England,Zhang Anda,Yao Pengcheng,6,0,CHN,CHN,qualifying
+2026-11-26,2026 UK Championship,England,Zhao Hanyang,Ng On-yee,6,4,CHN,HKG,qualifying
+2026-11-26,2026 UK Championship,England,Zhou Yuelong,Wang Xinbo,6,1,CHN,CHN,qualifying
